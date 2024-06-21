@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from exyte.com/blog/swiftui-and-our-open-source-framework by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 May 2024 06:26:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    '../../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MMWH6V3L');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <meta charset="UTF-8">
+    <title>The SwiftUI Replacement for an Open Source Framework by Exyte</title>
+    <meta name="description" content="Interview with our CTO about his favourite iOS graphics library that went almost useless the minute Apple releases their SwiftUI. ">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=1.0,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/post.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png">
+    <link rel="manifest" href="../img/site.webmanifest">
+    <link rel="shortcut icon" href="../img/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="/img/browserconfig.xml">
+    <meta name="theme-color" content="#0C0C0C">
+    <meta property="og:url" content="https://exyte.com/blog/swiftui-and-our-open-source-framework" />
+    <meta property="og:title" content="How SwiftUI replaced our open-source framework" />
+    <meta property="og:description" content="Interview with our CTO about his favourite iOS graphics library that went almost useless the minute Apple releases their SwiftUI. " />
+    <meta property="og:image" content="https://exyte.com&#x2F;upload&#x2F;cover-7.png" />
+    <link rel="canonical" href="swiftui-and-our-open-source-framework.html">
+    <link rel="alternate" hreflang="x-default" href="swiftui-and-our-open-source-framework.html">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMWH6V3L"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- Facebook SDK -->
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+        src="../../connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0&appId=666624907657481&autoLogAppEvents=1"
+        nonce="cLUAhMIb"></script>
+
+<!-- End Facebook SDK -->
+<header id="site-header">
+  <div class="header__logo">
+    <a class="header__logo-link" href="../index.html">
+      <img  src="../img/logo-beige.svg" height="24" width="84" alt="logo"/>
+    </a>
+  </div>
+  <div class="header__menu">
+    <a class="header__menu-link" href="../index.html">01_Main</a>
+    <a class="header__menu-link" href="../portfolio.html">02_Projects</a>
+    <a class="header__menu-link" href="../blog.html">03_Knowledge Base</a>
+    <a class="header__menu-link" href="../contacts.html">04_Contacts</a>
+    <div style="flex-grow: 1;"></div>
+    <div class="header__mobile-buttons">
+      <button class="header-footer__button header-footer__button--letter" onclick="showModal()">
+        <div class="header-footer__arrow ">
+          <img class="arrow" src="../img/arrow-right-up.svg" alt="arrow"/>
+        </div>
+        Send a letter
+      </button>
+      <a class="header-footer__button header-footer__button--call" href="https://calendly.com/exyte/30min"
+         target="_blank">
+        <div class="header-footer__arrow ">
+          <img class="arrow" src="../img/arrow-right-up.svg" alt="arrow"/>
+        </div>
+        Schedule a call
+      </a>
+    </div>
+  </div>
+  <div class="header__button-wrapper">
+    <button class="header__button header__button--mobile" onclick="showMobileMenu()">MENU</button>
+    <button class="header__button header__button--close" onclick="showMobileMenu()">CLOSE</button>
+    <button class="header__button header__button--desktop" onclick="showModal()">GET IN TOUCH</button>
+  </div>
+</header><div class="post">
+    <div class="post__container">
+        <a class="post__back" href="../blog.html">
+            <img src="../img/arrow-left.svg" alt="arrow-left"> BACK TO ALL
+        </a>
+        <div class="post__date">19 Dec 2019</div>
+        <div class="post__title">How SwiftUI replaced our open-source framework</div>
+        <ul class="post__share">
+            <li>
+                <a class="post__share-item" href="https://twitter.com/intent/tweet?text=How%20SwiftUI%20replaced%20our%20open-source%20framework%0Ahttps%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dtwitter%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M12.0271 0.803184V0.799988H12.8711L13.1794 0.86072C13.385 0.900149 13.5717 0.951819 13.7394 1.01575C13.9071 1.07968 14.0694 1.15427 14.2263 1.2395C14.3832 1.32473 14.5255 1.41158 14.6532 1.50001C14.7798 1.58738 14.8934 1.68008 14.9941 1.7781C15.0936 1.87719 15.2489 1.90276 15.4599 1.85482C15.6709 1.80687 15.8981 1.74027 16.1416 1.65504C16.385 1.5698 16.6258 1.47391 16.8638 1.36736C17.1019 1.2608 17.2469 1.19315 17.2988 1.16438C17.3497 1.13456 17.3768 1.11858 17.38 1.11644L17.3832 1.11164L17.3995 1.10365L17.4157 1.09566L17.4319 1.08767L17.4482 1.07968L17.4514 1.07488L17.4563 1.07169L17.4612 1.06849L17.4644 1.06369L17.4806 1.0589L17.4968 1.0557L17.4936 1.07968L17.4887 1.10365L17.4806 1.12762L17.4725 1.1516L17.4644 1.16758L17.4563 1.18356L17.4482 1.20753C17.4427 1.22352 17.4373 1.24482 17.4319 1.27146C17.4265 1.29811 17.3751 1.40464 17.2777 1.59111C17.1803 1.77757 17.0586 1.96669 16.9125 2.15848C16.7665 2.35027 16.6355 2.49516 16.5198 2.5932C16.4029 2.69229 16.3255 2.76154 16.2876 2.80096C16.2498 2.84145 16.2038 2.87873 16.1497 2.91284L16.0685 2.96558L16.0523 2.97357L16.0361 2.98156L16.0328 2.98636L16.028 2.98955L16.0231 2.99275L16.0198 2.99755L16.0036 3.00554L15.9874 3.01353L15.9841 3.01832L15.9793 3.02152L15.9744 3.02472L15.9711 3.02951L15.9679 3.03431L15.963 3.0375L15.9582 3.0407L15.9549 3.04549H16.0361L16.4905 2.9496C16.7935 2.88567 17.083 2.80843 17.3589 2.71786L17.7971 2.57402L17.8458 2.55803L17.8702 2.55004L17.8864 2.54205L17.9026 2.53406L17.9188 2.52607L17.9351 2.51808L17.9675 2.51328L18 2.51009V2.54205L17.9919 2.54525L17.9838 2.55004L17.9805 2.55484L17.9757 2.55803L17.9708 2.56123L17.9675 2.56603L17.9643 2.57082L17.9594 2.57402L17.9546 2.57721L17.9513 2.58201L17.9481 2.5868L17.9432 2.59L17.9351 2.60598L17.927 2.62196L17.9221 2.62516C17.9199 2.62836 17.8512 2.71891 17.716 2.89686C17.5807 3.07586 17.5077 3.16641 17.4968 3.16856C17.486 3.17175 17.4709 3.18773 17.4514 3.2165C17.433 3.24633 17.3183 3.36514 17.1073 3.57291C16.8963 3.78068 16.6897 3.96553 16.4873 4.12749C16.2839 4.29051 16.1811 4.49081 16.1789 4.72842C16.1757 4.96496 16.1632 5.23241 16.1416 5.53073C16.1199 5.82907 16.0794 6.15137 16.0198 6.49766C15.9603 6.84394 15.8684 7.23551 15.7439 7.67235C15.6195 8.10919 15.468 8.53539 15.2894 8.95093C15.1109 9.36647 14.9243 9.73938 14.7295 10.0697C14.5347 10.4 14.3562 10.6797 14.1939 10.9088C14.0316 11.1378 13.8666 11.3536 13.6988 11.556C13.5311 11.7585 13.319 11.9865 13.0626 12.2401C12.8051 12.4926 12.6644 12.6311 12.6406 12.6556C12.6157 12.6791 12.5097 12.7664 12.3225 12.9177C12.1363 13.0701 11.9362 13.2224 11.7219 13.3748C11.5088 13.5261 11.3129 13.6524 11.1344 13.7536C10.9558 13.8548 10.7405 13.9704 10.4884 14.1004C10.2373 14.2315 9.96573 14.3529 9.67358 14.4648C9.38142 14.5767 9.07304 14.6806 8.74842 14.7765C8.4238 14.8724 8.11001 14.9469 7.80703 15.0002C7.50407 15.0535 7.16051 15.0988 6.77637 15.1361L6.20018 15.192V15.2H5.14518V15.192L5.00721 15.184C4.91525 15.1787 4.8395 15.1733 4.77998 15.168C4.72048 15.1627 4.49594 15.1334 4.1064 15.0801C3.71686 15.0269 3.41119 14.9736 3.18936 14.9203C2.96755 14.867 2.63751 14.7658 2.19928 14.6166C1.76105 14.4675 1.38611 14.3167 1.07448 14.1643C0.763937 14.013 0.569167 13.9171 0.490171 13.8767C0.412263 13.8372 0.324617 13.7882 0.227232 13.7296L0.0811542 13.6417L0.0779243 13.6369L0.0730388 13.6337L0.0681695 13.6305L0.0649234 13.6257L0.0486925 13.6177L0.0324617 13.6098L0.0292317 13.605L0.0243463 13.6018L0.019477 13.5986L0.0162308 13.5938L0.0130009 13.589L0.00811542 13.5858H0V13.5538L0.0162308 13.557L0.0324617 13.5618L0.1055 13.5698C0.154193 13.5751 0.28675 13.5831 0.503156 13.5938C0.719578 13.6044 0.949504 13.6044 1.19297 13.5938C1.43643 13.5831 1.68531 13.5591 1.93959 13.5219C2.19387 13.4846 2.49414 13.4206 2.8404 13.3301C3.18667 13.2395 3.50479 13.1319 3.79479 13.0072C4.0837 12.8815 4.28928 12.7877 4.41156 12.7259C4.53274 12.6652 4.71777 12.5523 4.96664 12.3871L5.33995 12.1394L5.34319 12.1346L5.34806 12.1314L5.35295 12.1282L5.35618 12.1234L5.35942 12.1186L5.36429 12.1154L5.36918 12.1122L5.37241 12.1074L5.38864 12.1026L5.40487 12.0994L5.40812 12.0835L5.41298 12.0675L5.41787 12.0643L5.4211 12.0595L5.29125 12.0515C5.20469 12.0462 5.12083 12.0408 5.03968 12.0355C4.95852 12.0302 4.83138 12.0062 4.65825 11.9636C4.48513 11.921 4.29848 11.857 4.09829 11.7718C3.89811 11.6866 3.70334 11.5853 3.51398 11.4681C3.32463 11.3509 3.18774 11.2534 3.10334 11.1757C3.02002 11.0989 2.91181 10.9903 2.77872 10.8496C2.64671 10.7079 2.53201 10.5625 2.43463 10.4133C2.33724 10.2641 2.24419 10.092 2.15547 9.89708L2.02074 9.6062L2.01262 9.58223L2.00451 9.55826L1.99964 9.54227L1.99639 9.52629L2.02074 9.52949L2.04509 9.53428L2.22362 9.55826C2.34266 9.57424 2.52932 9.57956 2.78359 9.57424C3.03788 9.56892 3.21371 9.55826 3.31109 9.54227C3.40848 9.52629 3.46799 9.51563 3.48963 9.51031L3.52209 9.50232L3.56267 9.49433L3.60325 9.48634L3.60649 9.48154L3.61136 9.47834L3.61625 9.47515L3.61948 9.47035L3.58702 9.46236L3.55455 9.45437L3.52209 9.44638L3.48963 9.43839L3.45717 9.4304C3.43553 9.42508 3.39767 9.41442 3.34355 9.39843C3.28946 9.38245 3.14338 9.32384 2.90532 9.22263C2.66728 9.12141 2.47791 9.02285 2.33724 8.92696C2.19622 8.83079 2.06176 8.72561 1.93472 8.61211C1.80812 8.49704 1.66908 8.34893 1.51758 8.1678C1.3661 7.98667 1.23085 7.77624 1.11181 7.5365C0.992792 7.29677 0.903522 7.0677 0.844004 6.84927C0.784724 6.63212 0.745615 6.41012 0.727158 6.186L0.697926 5.85038L0.714157 5.85357L0.730388 5.85837L0.746619 5.86636L0.762849 5.87435L0.77908 5.88234L0.795311 5.89033L1.04689 6.00221C1.21462 6.0768 1.42291 6.14073 1.67178 6.19399C1.92066 6.24726 2.06943 6.27657 2.11812 6.2819L2.19116 6.28989H2.33724L2.33401 6.28509L2.32913 6.2819L2.32426 6.2787L2.32101 6.27391L2.31778 6.26911L2.31289 6.26591L2.30803 6.26272L2.30478 6.25792L2.28855 6.24993L2.27232 6.24194L2.26909 6.23715L2.2642 6.23395L2.25933 6.23075L2.25609 6.22596L2.23986 6.21797L2.22362 6.20998L2.22039 6.20518C2.21715 6.20304 2.17061 6.16895 2.08079 6.1029C1.99206 6.03577 1.89901 5.94894 1.80162 5.84238C1.70424 5.73583 1.60685 5.62396 1.50947 5.50676C1.4119 5.38929 1.32501 5.26361 1.24977 5.13118C1.17404 4.998 1.09396 4.82857 1.00956 4.62294C0.926245 4.41837 0.862945 4.2122 0.819657 4.00443C0.776386 3.79666 0.75204 3.59156 0.746619 3.38911C0.741214 3.18666 0.746619 3.01353 0.762849 2.86969C0.77908 2.72585 0.811542 2.56336 0.860234 2.38223C0.908927 2.2011 0.979271 2.00932 1.07124 1.80687L1.2092 1.50321L1.21731 1.47923L1.22543 1.45526L1.23031 1.45206L1.23354 1.44727L1.23679 1.44247L1.24166 1.43928L1.24654 1.44247L1.24977 1.44727L1.25302 1.45206L1.25789 1.45526L1.26278 1.45846L1.26601 1.46325L1.26925 1.46805L1.27412 1.47124L1.28224 1.48722L1.29035 1.50321L1.29524 1.5064L1.29847 1.5112L1.51758 1.75093C1.66366 1.91075 1.8368 2.08923 2.03697 2.28634C2.23716 2.48345 2.34807 2.58573 2.3697 2.5932C2.39135 2.60171 2.41839 2.62621 2.45086 2.66671C2.48332 2.70614 2.59153 2.80044 2.77547 2.9496C2.95943 3.09876 3.20019 3.27191 3.49775 3.46902C3.79532 3.66613 4.12534 3.86059 4.48783 4.05237C4.85033 4.24416 5.23987 4.4173 5.65645 4.5718C6.07304 4.7263 6.3652 4.82751 6.53291 4.87546C6.70064 4.92341 6.98738 4.98467 7.39315 5.05926C7.79892 5.13384 8.10461 5.18179 8.31019 5.2031C8.51578 5.2244 8.65646 5.23666 8.73219 5.23985L8.84581 5.24305L8.84258 5.21908L8.83769 5.1951L8.80523 4.99533C8.78359 4.86215 8.77277 4.67568 8.77277 4.43595C8.77277 4.19621 8.79171 3.97513 8.82958 3.77268C8.86746 3.57024 8.92427 3.36514 9 3.15737C9.07575 2.9496 9.14988 2.78284 9.22236 2.65712C9.29595 2.53246 9.39225 2.39022 9.51127 2.2304C9.63031 2.07058 9.7845 1.90543 9.97385 1.73495C10.1632 1.56447 10.3796 1.41264 10.6231 1.27946C10.8665 1.14628 11.0911 1.04504 11.2967 0.975792C11.5023 0.906541 11.6754 0.861248 11.8161 0.839943C11.9567 0.818639 12.0271 0.806381 12.0271 0.803184Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="#"
+                   onclick="FB.ui({method: 'share', href: 'https:&#x2F;&#x2F;exyte.com&#x2F;blog&#x2F;swiftui-and-our-open-source-framework?utm_source&#x3D;facebook&amp;utm_medium&#x3D;referral&amp;utm_campaign&#x3D;website_blog'}, function(response){});return false;">
+                    <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M5.84188 17.9991V9.7885H8.49534L8.89261 6.58865H5.8418V4.54568C5.8418 3.61924 6.08946 2.98793 7.36862 2.98793L9 2.98714V0.125217C8.71784 0.0862916 7.74937 -0.000854492 6.6228 -0.000854492C4.27062 -0.000854492 2.66027 1.49032 2.66027 4.22887V6.58865H0V9.7885H2.66027V17.9991H5.84188V17.9991Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dlinkedin%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog"
+                   onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=512,toolbar=1,resizable=0'); return false;">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.90192 16V5.20481H0.741145V16H3.90192ZM2.32195 3.73004C3.42416 3.73004 4.11024 2.90109 4.11024 1.8652C4.0897 0.805933 3.4242 0 2.34288 0C1.2617 0 0.554688 0.805945 0.554688 1.8652C0.554688 2.90115 1.24059 3.73004 2.30134 3.73004H2.32188H2.32195Z"
+                              fill="#CEC0AD"/>
+                        <path d="M5.88867 16H9.67423V9.69485C9.67423 9.3574 9.69883 9.02031 9.79879 8.77909C10.0725 8.10488 10.6953 7.4066 11.7411 7.4066C13.1109 7.4066 13.6589 8.44197 13.6589 9.95977V16H17.4442V9.52608C17.4442 6.05808 15.5766 4.44446 13.086 4.44446C11.0438 4.44446 10.1472 5.57606 9.64904 6.34679H9.67432V4.70932H5.88876C5.93843 5.76875 5.88876 15.9998 5.88876 15.9998L5.88867 16Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="https://www.reddit.com/submit?url=https%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dreddit%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog&amp;title=How%20SwiftUI%20replaced%20our%20open-source%20framework">
+                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M15.9565 7.14002C17.0472 7.1031 17.96 7.95216 18.0003 9.0395C18.0137 9.79795 17.5875 10.496 16.9096 10.835C16.923 11.033 16.923 11.231 16.9096 11.429C16.9096 14.4561 13.3858 16.9126 9.03981 16.9126C4.69382 16.9126 1.17004 14.4527 1.17004 11.429C1.15661 11.231 1.15661 11.033 1.17004 10.835C0.972035 10.7477 0.794168 10.6235 0.639792 10.4792C-0.155575 9.73419 -0.192491 8.48577 0.552537 7.69375C1.29756 6.89839 2.54599 6.86147 3.338 7.6065C4.89518 6.55272 6.72419 5.97549 8.60354 5.94529L9.60026 1.26034V1.25363C9.6506 1.02542 9.87545 0.884468 10.1003 0.934808L13.4093 1.59594C13.6207 1.22678 14.0033 0.978436 14.4295 0.934808C15.1712 0.854264 15.8357 1.39122 15.9162 2.13289C15.9968 2.87457 15.4598 3.53905 14.7181 3.61959C13.9765 3.70014 13.312 3.16318 13.2314 2.42151L10.3419 1.81407L9.46602 6.02583C11.3219 6.0661 13.1274 6.63998 14.6644 7.68704C15.0135 7.3548 15.4732 7.1568 15.9565 7.14002ZM5.85137 9.04053C5.10634 9.04053 4.4989 9.64796 4.4989 10.393C4.4989 11.138 5.10298 11.7387 5.85137 11.7454C6.59639 11.7454 7.20383 11.138 7.20383 10.393C7.20383 9.64796 6.59639 9.04053 5.85137 9.04053ZM12.3421 14.1023C11.3823 14.8238 10.2077 15.193 9.0063 15.1426C7.80486 15.193 6.63027 14.8238 5.67046 14.1023C5.54293 13.9479 5.56642 13.7163 5.7208 13.5888C5.85504 13.4781 6.04633 13.4781 6.18392 13.5888C6.99607 14.1828 7.98608 14.4848 8.99288 14.4379C9.99967 14.4916 10.993 14.2029 11.8153 13.6156C11.9629 13.4713 12.2046 13.4747 12.3489 13.6224C12.4932 13.77 12.4898 14.0117 12.3421 14.156V14.1023ZM10.7484 10.4399C10.7484 11.1849 11.3559 11.7923 12.1009 11.7923L12.0908 11.8427H12.158C12.903 11.8125 13.4836 11.1849 13.4534 10.4399C13.4534 9.69484 12.8459 9.0874 12.1009 9.0874C11.3559 9.0874 10.7484 9.69484 10.7484 10.4399Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="https://telegram.me/share/url?url=https%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dtelegram%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog&amp;text=How%20SwiftUI%20replaced%20our%20open-source%20framework%22">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M18 1.3845C17.9976 1.36687 17.9953 1.34911 17.9931 1.33132L17.9931 1.33126C17.9873 1.28511 17.9815 1.23876 17.9723 1.19385C17.8266 0.489117 17.4418 0.276269 16.7529 0.512899C16.6851 0.535747 16.6162 0.553252 16.5473 0.570787C16.5133 0.579413 16.4794 0.588045 16.4455 0.597324C16.3257 0.646995 16.2063 0.697745 16.0868 0.748505C15.8231 0.860575 15.5592 0.972692 15.2908 1.07336C14.8323 1.24688 14.3705 1.41242 13.9081 1.5782C13.7189 1.64605 13.5295 1.71395 13.3402 1.78245C13.215 1.83476 13.0901 1.88781 12.9652 1.94087C12.6935 2.05627 12.4218 2.1717 12.1471 2.27949C11.4536 2.55149 10.7591 2.8199 10.0645 3.08837L10.0642 3.0885C9.75273 3.20886 9.44128 3.32924 9.12986 3.44995C7.05908 4.251 4.98791 5.05166 2.91555 5.85271C2.77206 5.90832 2.6282 5.96302 2.48433 6.01773C2.16161 6.14044 1.83887 6.26316 1.52028 6.39612L1.40151 6.44514L1.40151 6.44514C1.03508 6.59611 0.665759 6.74827 0.329248 6.95143C0.164122 7.05092 -0.0175941 7.31252 0.00136758 7.47859C0.0143463 7.59834 0.148436 7.70576 0.281009 7.81196L0.281014 7.81196C0.334058 7.85445 0.386858 7.89675 0.431562 7.93956C0.454319 7.96145 0.489975 7.9714 0.524364 7.98101C0.532955 7.9834 0.541466 7.98578 0.549678 7.98832L0.551364 7.98884L0.552874 7.98931C1.64961 8.32985 2.74635 8.67039 3.84388 9.01014C3.83796 9.12509 3.85099 9.24241 3.88694 9.35854L4.28632 10.644L4.81133 12.3305C4.84609 12.4409 4.88098 12.5502 4.91571 12.6591L4.91585 12.6595C4.94264 12.7435 4.96934 12.8271 4.99581 12.9108L5.03371 13.0299C5.17122 13.4622 5.31228 13.9056 5.44141 14.3404C5.74875 15.3706 6.57753 15.4503 6.82443 15.4503C6.85181 15.4503 6.8805 15.4489 6.90937 15.4476H6.90939L6.93899 15.4463C6.97691 15.4479 7.01484 15.4491 7.05237 15.4491C7.6864 15.4491 8.09368 15.0987 8.33623 14.889C8.38087 14.8498 8.42354 14.8137 8.45435 14.7899C8.50452 14.7523 8.55153 14.7114 8.59182 14.6659C8.6077 14.6493 8.62289 14.6325 8.63802 14.6157C8.65301 14.5991 8.66795 14.5825 8.68347 14.5664C8.73443 14.5093 8.78223 14.4558 8.8245 14.4138C9.19307 14.0475 9.56084 13.6825 9.9302 13.317L10.3679 12.8838C10.4295 12.9266 10.4912 12.969 10.5532 13.0114C10.846 13.2308 11.1386 13.4504 11.4313 13.67L11.4329 13.6712L11.4335 13.6716C12.1356 14.1985 12.8379 14.7256 13.5428 15.2489C14.2886 15.8022 14.8101 15.6587 15.1711 14.8133C15.2938 14.2441 15.416 13.674 15.5378 13.1052L15.5384 13.1026L15.6302 12.6741C15.77 11.9627 15.9083 11.2532 16.0465 10.5433C16.118 10.2299 16.1886 9.91575 16.2591 9.60227L16.3108 9.37242C16.5439 8.2737 16.7766 7.17379 17.0085 6.07467C17.0518 5.87324 17.0946 5.67194 17.1374 5.47062L17.1378 5.46872C17.1694 5.32008 17.201 5.17144 17.2328 5.02272C17.2401 4.98957 17.2479 4.95636 17.2557 4.92308C17.2675 4.8728 17.2793 4.82239 17.2893 4.77183C17.5049 3.74801 17.7193 2.72484 17.9337 1.70084L18 1.3845ZM8.17565 11.3002L8.79843 11.7659L8.80223 11.7687C9.04145 11.9477 9.28085 12.1268 9.52035 12.3057L9.24063 12.5826L9.23861 12.5846C8.86384 12.9555 8.48896 13.3265 8.1156 13.697C8.08958 13.7238 8.06455 13.7513 8.03949 13.7789L8.03946 13.7789C8.02269 13.7974 8.0059 13.8158 7.9888 13.8341L8.01131 13.5273C8.06504 12.7853 8.11916 12.0422 8.17565 11.3002ZM8.99883 6.56886C9.95178 5.96508 10.9046 5.36135 11.8575 4.75832C12.6511 4.25652 13.4436 3.75592 14.249 3.27433C14.3416 3.21969 14.464 3.21532 14.5868 3.21094C14.6448 3.20887 14.7028 3.2068 14.7578 3.19942C14.7336 3.24188 14.7118 3.28717 14.6901 3.33246C14.6566 3.40215 14.6231 3.47183 14.5805 3.53118C13.6237 4.41784 12.6602 5.29777 11.6943 6.17453C11.3443 6.49185 10.9914 6.80637 10.6383 7.12096C10.2271 7.48736 9.81587 7.85384 9.40906 8.22492C9.1116 8.49524 8.81967 8.76952 8.52734 9.0442C8.4195 9.14567 8.31086 9.24793 8.20341 9.3498C8.11979 9.42824 8.03633 9.50716 7.95288 9.58606C7.84828 9.68496 7.74372 9.78383 7.6389 9.88172C7.61952 9.90195 7.60032 9.92229 7.58108 9.94268C7.56151 9.96341 7.54189 9.9842 7.52197 10.005C7.50366 10.0226 7.48446 10.0403 7.46533 10.058C7.45598 10.0666 7.44664 10.0753 7.43744 10.0839C7.42175 10.1003 7.40607 10.1168 7.39038 10.1332C7.32746 10.1993 7.26453 10.2654 7.2016 10.3304C7.15696 10.3772 7.10047 10.5191 7.22925 10.5932C7.21306 10.7268 7.19725 10.8623 7.18738 10.9959C7.13495 11.6933 7.08457 12.3903 7.03418 13.0872C7.00181 13.535 6.96944 13.9829 6.93653 14.4308C6.63314 14.4839 6.48935 14.3337 6.40639 14.053C6.2633 13.5715 6.1104 13.0923 5.95752 12.613C5.89558 12.4189 5.83364 12.2247 5.77236 12.0304C5.4749 11.0728 5.17664 10.1156 4.87839 9.15875L4.88601 9.15528C4.93474 9.13311 4.9826 9.11134 5.02653 9.08384C6.35095 8.24655 7.67498 7.40765 8.99883 6.56886Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        <div class="post__description">Interview with our CTO about his favourite iOS graphics library that went almost useless the minute Apple releases their SwiftUI. </div>
+        <div class="post__meta">
+            <div class="post__read-time">7 min read</div>
+            <div class="post__tags">
+                    <a class="post__tag" href="../blog3aba.html?tag=iOS">#iOS </a>
+                    <a class="post__tag" href="../bloge518.html?tag=SwiftUI">#SwiftUI </a>
+                    <a class="post__tag" href="../blogcd46.html?tag=Mobile">#Mobile</a>
+            </div>
+        </div>
+        <img class="post__main-img" src="../upload/cover-7.png" alt="">
+        <div class="post__content">
+            <p class="article__text article__text-style">It is an interview about an open-source development and <em>SwiftUI</em>, answered by a CTO of an <a class="link link--line link--underscored" href="../mobile-development-services.html">app development</a> firm, conducted by our marketing team. The story may be interesting for those who work with <em>SwiftUI</em> or develop their open source project. </p>
+<p class="article__text article__text-style">When you develop an open source projects, you can move as fast as you want, experiment, and try new interesting, innovative approaches. Years later, technology giants will skim the best of approaches tried by open source community and offer their implementation, which will be much more solid and stable. </p>
+<p class="article__text article__text-style">The goal of open source projects is to form new directions, and then die under the onslaught of more thorough solutions from the giants of the market. We can only adapt and move on, trying something new and thought-provoking.</p>
+<h3 class="article__title--h3">When and why did you decide to start an open-source project?</h3>
+<p class="article__text article__text-style">In 2015 we started working with the <em>iOS</em> market. At that time, we already had a solid background in Desktop/Web technologies and experience with modern graphics libraries like <em>JavaFX/WPF/Qt/</em>etc. How surprised we were when find there was no good framework to work with vector graphics in <em>iOS</em>, and as a consequence, there was no good SVG support. So we decided to create an open-source framework to fill this gap.</p>
+<p class="article__text article__text-style">I called the project <a class="link link--line link--underscored" rel="nofollow" href="https://github.com/exyte/Macaw"><em>Macaw</em></a>. It started in 2015 as a framework for an easy and convenient UI construction. Now <em>Macaw</em> can work with vector graphics, animation, declarative API, and SVG support. If you need to make a beautiful chart or <a class="link link--line link--underscored" href="swiftui-tutorial-slider-control.html">custom control</a>, the easiest way to do it is with <em>Macaw</em>.</p>
+<img src="../upload/liquid_swipe_brighter-compressed-(1).gif" alt="" title="Slider control made with Macaw" /><div class="article__img-title">Slider control made with Macaw</div>
+<h3 class="article__title--h3">You have been developing your graphics library for four years when <em>Apple</em> announced its solution to graphics in <em>iOS</em>, right?</h3>
+<p class="article__text article__text-style">Yes, <em>Macaw</em> used to be a popular open source library for vector graphics and UI with almost 5K stars on <em>GitHub</em>, but that was before <em>SwiftUI</em> was released. I watched <em>WWDC</em>’19 live, and as soon as <em>SwiftUI</em> was announced, I dashed to my laptop to check how much it overlaps with Macaw. </p>
+<p class="article__text article__text-style">Quite soon I found out that <em>SwiftUI</em> covered 90% of <em>Macaw</em>’s features. I spent the next few days studying <em>SwiftUI</em>, scrutinizing the documentation, investigating the framework and trying to understand how good it was.</p>
+<p class="article__text article__text-style">I felt bitter seeing Macaw go obsolete in just one night after we worked on it for years. But on the other hand, we did a free open source project as we pleased and when we wanted, and Apple probably spent tons of resources on <em>SwiftUI</em>. Surely, <em>Apple</em>'s framework is a huge step forward compared to what <em>Macaw</em> was. </p>
+<h3 class="article__title--h3">What is <em>SwiftUI</em>, and why you think <em>Apple</em> created it?</h3>
+<p class="article__text article__text-style"><em>SwiftUI</em> is a great framework for building a user interface. It is built on modern principles: declarative syntax, simple and convenient API, WYSIWYG editor, etc. It also includes work with vector graphics, scene graphs, animations, and all that we had in <em>Macaw</em>. </p>
+<p class="article__text article__text-style">Except maybe for SVG, <em>Macaw</em> still beats <em>SwiftUI</em> in terms of parsing SVG images, maybe it is due to the fact  that Apple isn’t trying to make an SVG-parser. Yet.</p>
+<img src="../upload/kit.gif" alt="" title="Stages of perfecting Macaw's SVG rendering " /><div class="article__img-title">Stages of perfecting Macaw's SVG rendering </div>
+<h3 class="article__title--h3">So you thought about <em>SwiftUI</em>'s functionality four years before it was implemented by <em>Apple</em>?</h3>
+<p class="article__text article__text-style">In fact, the idea of such a universal and convenient framework for building user interfaces was already there when I got interested in UI development back in 2008. That was the age of WPF and JavaFX, when tools for UI building only appeared for Desktop (on .NET and Java platforms, respectively). Even then, I remember having an idle minute with a cup of tea looking at these libraries and thinking that a fair number of things could have been done better. </p>
+<p class="article__text article__text-style">I first tried my hand at writing a graphics library in 2014 when we [at <em>Exyte</em>] were making a library for <em>Java</em> called <a class="link link--line link--underscored" rel="nofollow" href="https://www.infoq.com/presentations/ui-eclipse-rcp/"><em>Sweet</em></a>. In 2016, <em>Sweet</em> was in a way more similar to <em>SwiftUI</em> - there was not only vector graphics, but also widgets, layout, bindings, live editing, etc. One-year-old <em>Macaw</em> then had nothing but plans of having those features.</p>
+<h3 class="article__title--h3">Being a huge step forward, will <em>SwiftUI</em> replace <em>UIKit/AppKit/WatchKit</em>?</h3>
+<p class="article__text article__text-style"><em>SwiftUI</em> is a full-fledged graphics library and it will replace the rest of the UI libraries on <em>Apple</em> platforms at some point. I think in a couple of years, we all will use <em>SwiftUI</em> for most projects, but earlier frameworks won’t just disappear all of a sudden. </p>
+<p class="article__text article__text-style">The <em>iOS</em> community has already witnessed a similar situation with <em>Objective-C</em>. <em>Swift</em> has been released in 2014 , yet there are many applications that still run on <em>Objective-C</em>, and the transition hasn't been completed yet. </p>
+<h3 class="article__title--h3">If <em>UIKit</em> is here to stay for at least a few years, can we use <em>SwiftUI</em> and <em>UIKit</em> simultaneously?</h3>
+<p class="article__text article__text-style">Yes, you can use views from <em>SwiftUI</em> in <em>UIKit</em> and vice versa, which is an important step in the transition from <em>UIKit</em> to <em>SwiftUI</em>. What it means is that you don't have to rewrite the application from scratch to use <em>SwiftUI</em> features, you can just describe all the new components in the interface on <em>SwiftUI</em> and integrate them into your <em>UIKit</em>-based application. </p>
+<p class="article__text article__text-style">For example:
+<div class="post__gist"><script src="../../gist.github.com/basilche/6b95641c702dee1b8f537b1e5db4347c.js"></script></div></p>
+<h3 class="article__title--h3">Can you use Auto Layout in <em>SwiftUI</em> ?</h3>
+<p class="article__text article__text-style">No, you cannot. Although some parts of SwiftUI do use Auto Layout deep under the hood, but developers have no access to it.</p>
+<p class="article__text article__text-style">I must say that while other mobile platforms have also begun to adopt Auto Layout, only <em>iOS</em> had this constraint-based approach as the main one. Leaving Auto Layout behind was a logical step in the transition from storyboards to declarative UI, because writing constraints in the code would be too time-consuming.</p>
+<p class="article__text article__text-style">But at the same time, I believe that <em>Apple</em>'s current approach with stacks is also just an intermediate stage. I find it much more convenient to work with layouts when they are separate from the main UI, using something similar to CSS, for example, where widgets only define the hierarchy. I believe Apple will come to that later.</p>
+<h3 class="article__title--h3">Nevertheless Apple tried to provide an exhaustive documentation, there are still some questions. For example, what is "some" keyword and how the syntax inside {} braces works.</h3>
+<p class="article__text article__text-style">Oh, this is an interesting story; <em>Apple</em> has done a really good job here. You see, the goal of <em>SwiftUI</em>'s declarative UI is to simplify and shorten the code as much as possible.</p>
+<p class="article__text article__text-style">Remember how UIKit is used and how hard it is to read? Many graphics library developers resort to developing their own <em>DSLs</em> to avoid that. For example, <em>react</em> has <em>JSX</em> to avoid describing UI in pure <em>JavaScript</em>. But I think this approach is quite controversial too since using more than one language per project is bad practice and really complicates things.</p>
+<p class="article__text article__text-style">Apple solved that problem by integrating declarativity right into <em>Swift</em>. <code>some</code> keyword allows you to use generics inside the <code>View</code> without taking them outside when you need just to reference the <code>View</code>. By the way, we did not use any generics in <em>Macaw</em>; otherwise, no declarative syntax would have worked.</p>
+<p class="article__text article__text-style">For example, in <em>Macaw</em> if you want to create a container with some content, you write:</p>
+<p class="article__text article__text-style"><div class="post__gist"><script src="../../gist.github.com/basilche/990725c0a2cc3812d330bfcdbed472d8.js"></script></div></p>
+<p class="article__text article__text-style">Specifically to simplify this syntax we added extension <code>group()</code>:</p>
+<p class="article__text article__text-style"><div class="post__gist"><script src="../../gist.github.com/basilche/e3e016afd3661a6010c43c107a9beee0.js"></script></div></p>
+<p class="article__text article__text-style"><em>Swift</em> has Function Builders for this so that you can use the traditional declarative syntax:</p>
+<p class="article__text article__text-style"><div class="post__gist"><script src="../../gist.github.com/basilche/2e604def9f159f0978fc595b6407c1ed.js"></script></div></p>
+<p class="article__text article__text-style">It is as simple and readable as possible.</p>
+<p class="article__text article__text-style">The same goes for <code>State</code> variables (or bindings). They work so transparently that you don't even think about listening to model changes and updating the UI because <em>SwiftUI</em> does everything for you.</p>
+<h3 class="article__title--h3">One of <em>Macaw</em>'s key features was animation. How are things with animation in <em>SwiftUI</em>?</h3>
+<img src="../upload/macaw_example.gif" alt="" title="Animation made with Macaw" /><div class="article__img-title">Animation made with Macaw</div>
+<p class="article__text article__text-style">In <em>Macaw</em>, the animation was easy and convenient if compared to animations in <em>UIKit</em>. <a class="link link--line link--underscored" href="replicating-apple-card-application-using-swiftui.html">In <em>SwiftUI</em></a>, it is even easier thanks to the variables built into <em>Swift</em> state. </p>
+<p class="article__text article__text-style">It is a great improvement compared to <em>UIKit</em>, where the animation was very complex, you had to bother with layers, think about a bunch of unnecessary details, etc. while you should have been able to build animation by simply changing the model indicating how to get to the final value (optionally setting time, easing, etc.).</p>
+<img src="../upload/Replicating_apple_card.gif" alt="" title="Animation made with SwiftUI" /><div class="article__img-title">Animation made with SwiftUI</div>
+<h3 class="article__title--h3">Is there anything that Macaw can do, but SwiftUI can't?</h3>
+<p class="article__text article__text-style">There are two main reasons to use Macaw instead of <em>SwiftUI</em> right now. First, <em>Macaw</em> works for all versions of <em>iOS</em> and <em>macOS</em>. Second, it has an SVG parser that is unlikely to appear in <em>SwiftUI</em> as it is a whole different story. There are also some minor features, but I doubt we have to wait long before <em>SwiftUI</em> covers them too.</p>
+<h3 class="article__title--h3">What difficulties can arise in mastering and using SwiftUI, based on the experience of developing Macaw?</h3>
+<p class="article__text article__text-style">The second difficult task (after actually creating the library) was explaining to the community how to use it, because <em>Macaw</em> approaches interface design in a way that is different from <em>UIKit</em> and similar libraries. In that way, <em>SwiftUI</em> is very similar to <em>Macaw</em>. </p>
+<p class="article__text article__text-style">I respect and admire <em>Apple</em> here for immediately presenting a huge number of tutorials and documentation that explain their new approach to UI design. The community is also actively involved in highlighting all the features of the new framework. So I think <em>SwiftUI</em> would escape the problems <em>Macaw</em> had. </p>
+<h3 class="article__title--h3">What will become of Macaw?</h3>
+<p class="article__text article__text-style"><em>Macaw</em> has a lot of users, and until <em>SwiftUI</em> works on 99% of phones, we'll keep supporting it. Again, we still have the best SVG parser in <em>iOS</em>. But I think as soon as <em>SwiftUI</em> covers all of <em>Macaw</em>'s functionality, we will transfer SVG parser to <em>SwiftUI</em> and simply port <em>Macaw</em> to new versions of <em>Swift</em>. </p>
+<h3 class="article__title--h3">About the author</h3>
+<p class="article__text article__text-style">Yuri Strot, CTO, <em>Exyte</em>. I have been professionally engaged in IT for more than 15 years. Before <em>Exyte</em>, I worked for several companies including Instantiations and API.AI which were acquired by <em>Google</em>. </p>
+<p class="article__text article__text-style">I have experience in many different areas, such as backend, blockchain, AR / VR. But what I spend the most time on for the past four years has been <em>Swift</em> and <em>iOS</em>. Apart from developing the <em>iOS</em> app as a part of the business, I am also an open-source evangelist and take part in a few projects on <em>Swift</em>.</p>
+        </div>
+        <ul class="post__share post__share--bottom">
+            <li>
+                <a class="post__share-item" href="https://twitter.com/intent/tweet?text=How%20SwiftUI%20replaced%20our%20open-source%20framework%0Ahttps%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dtwitter%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M12.0271 0.803184V0.799988H12.8711L13.1794 0.86072C13.385 0.900149 13.5717 0.951819 13.7394 1.01575C13.9071 1.07968 14.0694 1.15427 14.2263 1.2395C14.3832 1.32473 14.5255 1.41158 14.6532 1.50001C14.7798 1.58738 14.8934 1.68008 14.9941 1.7781C15.0936 1.87719 15.2489 1.90276 15.4599 1.85482C15.6709 1.80687 15.8981 1.74027 16.1416 1.65504C16.385 1.5698 16.6258 1.47391 16.8638 1.36736C17.1019 1.2608 17.2469 1.19315 17.2988 1.16438C17.3497 1.13456 17.3768 1.11858 17.38 1.11644L17.3832 1.11164L17.3995 1.10365L17.4157 1.09566L17.4319 1.08767L17.4482 1.07968L17.4514 1.07488L17.4563 1.07169L17.4612 1.06849L17.4644 1.06369L17.4806 1.0589L17.4968 1.0557L17.4936 1.07968L17.4887 1.10365L17.4806 1.12762L17.4725 1.1516L17.4644 1.16758L17.4563 1.18356L17.4482 1.20753C17.4427 1.22352 17.4373 1.24482 17.4319 1.27146C17.4265 1.29811 17.3751 1.40464 17.2777 1.59111C17.1803 1.77757 17.0586 1.96669 16.9125 2.15848C16.7665 2.35027 16.6355 2.49516 16.5198 2.5932C16.4029 2.69229 16.3255 2.76154 16.2876 2.80096C16.2498 2.84145 16.2038 2.87873 16.1497 2.91284L16.0685 2.96558L16.0523 2.97357L16.0361 2.98156L16.0328 2.98636L16.028 2.98955L16.0231 2.99275L16.0198 2.99755L16.0036 3.00554L15.9874 3.01353L15.9841 3.01832L15.9793 3.02152L15.9744 3.02472L15.9711 3.02951L15.9679 3.03431L15.963 3.0375L15.9582 3.0407L15.9549 3.04549H16.0361L16.4905 2.9496C16.7935 2.88567 17.083 2.80843 17.3589 2.71786L17.7971 2.57402L17.8458 2.55803L17.8702 2.55004L17.8864 2.54205L17.9026 2.53406L17.9188 2.52607L17.9351 2.51808L17.9675 2.51328L18 2.51009V2.54205L17.9919 2.54525L17.9838 2.55004L17.9805 2.55484L17.9757 2.55803L17.9708 2.56123L17.9675 2.56603L17.9643 2.57082L17.9594 2.57402L17.9546 2.57721L17.9513 2.58201L17.9481 2.5868L17.9432 2.59L17.9351 2.60598L17.927 2.62196L17.9221 2.62516C17.9199 2.62836 17.8512 2.71891 17.716 2.89686C17.5807 3.07586 17.5077 3.16641 17.4968 3.16856C17.486 3.17175 17.4709 3.18773 17.4514 3.2165C17.433 3.24633 17.3183 3.36514 17.1073 3.57291C16.8963 3.78068 16.6897 3.96553 16.4873 4.12749C16.2839 4.29051 16.1811 4.49081 16.1789 4.72842C16.1757 4.96496 16.1632 5.23241 16.1416 5.53073C16.1199 5.82907 16.0794 6.15137 16.0198 6.49766C15.9603 6.84394 15.8684 7.23551 15.7439 7.67235C15.6195 8.10919 15.468 8.53539 15.2894 8.95093C15.1109 9.36647 14.9243 9.73938 14.7295 10.0697C14.5347 10.4 14.3562 10.6797 14.1939 10.9088C14.0316 11.1378 13.8666 11.3536 13.6988 11.556C13.5311 11.7585 13.319 11.9865 13.0626 12.2401C12.8051 12.4926 12.6644 12.6311 12.6406 12.6556C12.6157 12.6791 12.5097 12.7664 12.3225 12.9177C12.1363 13.0701 11.9362 13.2224 11.7219 13.3748C11.5088 13.5261 11.3129 13.6524 11.1344 13.7536C10.9558 13.8548 10.7405 13.9704 10.4884 14.1004C10.2373 14.2315 9.96573 14.3529 9.67358 14.4648C9.38142 14.5767 9.07304 14.6806 8.74842 14.7765C8.4238 14.8724 8.11001 14.9469 7.80703 15.0002C7.50407 15.0535 7.16051 15.0988 6.77637 15.1361L6.20018 15.192V15.2H5.14518V15.192L5.00721 15.184C4.91525 15.1787 4.8395 15.1733 4.77998 15.168C4.72048 15.1627 4.49594 15.1334 4.1064 15.0801C3.71686 15.0269 3.41119 14.9736 3.18936 14.9203C2.96755 14.867 2.63751 14.7658 2.19928 14.6166C1.76105 14.4675 1.38611 14.3167 1.07448 14.1643C0.763937 14.013 0.569167 13.9171 0.490171 13.8767C0.412263 13.8372 0.324617 13.7882 0.227232 13.7296L0.0811542 13.6417L0.0779243 13.6369L0.0730388 13.6337L0.0681695 13.6305L0.0649234 13.6257L0.0486925 13.6177L0.0324617 13.6098L0.0292317 13.605L0.0243463 13.6018L0.019477 13.5986L0.0162308 13.5938L0.0130009 13.589L0.00811542 13.5858H0V13.5538L0.0162308 13.557L0.0324617 13.5618L0.1055 13.5698C0.154193 13.5751 0.28675 13.5831 0.503156 13.5938C0.719578 13.6044 0.949504 13.6044 1.19297 13.5938C1.43643 13.5831 1.68531 13.5591 1.93959 13.5219C2.19387 13.4846 2.49414 13.4206 2.8404 13.3301C3.18667 13.2395 3.50479 13.1319 3.79479 13.0072C4.0837 12.8815 4.28928 12.7877 4.41156 12.7259C4.53274 12.6652 4.71777 12.5523 4.96664 12.3871L5.33995 12.1394L5.34319 12.1346L5.34806 12.1314L5.35295 12.1282L5.35618 12.1234L5.35942 12.1186L5.36429 12.1154L5.36918 12.1122L5.37241 12.1074L5.38864 12.1026L5.40487 12.0994L5.40812 12.0835L5.41298 12.0675L5.41787 12.0643L5.4211 12.0595L5.29125 12.0515C5.20469 12.0462 5.12083 12.0408 5.03968 12.0355C4.95852 12.0302 4.83138 12.0062 4.65825 11.9636C4.48513 11.921 4.29848 11.857 4.09829 11.7718C3.89811 11.6866 3.70334 11.5853 3.51398 11.4681C3.32463 11.3509 3.18774 11.2534 3.10334 11.1757C3.02002 11.0989 2.91181 10.9903 2.77872 10.8496C2.64671 10.7079 2.53201 10.5625 2.43463 10.4133C2.33724 10.2641 2.24419 10.092 2.15547 9.89708L2.02074 9.6062L2.01262 9.58223L2.00451 9.55826L1.99964 9.54227L1.99639 9.52629L2.02074 9.52949L2.04509 9.53428L2.22362 9.55826C2.34266 9.57424 2.52932 9.57956 2.78359 9.57424C3.03788 9.56892 3.21371 9.55826 3.31109 9.54227C3.40848 9.52629 3.46799 9.51563 3.48963 9.51031L3.52209 9.50232L3.56267 9.49433L3.60325 9.48634L3.60649 9.48154L3.61136 9.47834L3.61625 9.47515L3.61948 9.47035L3.58702 9.46236L3.55455 9.45437L3.52209 9.44638L3.48963 9.43839L3.45717 9.4304C3.43553 9.42508 3.39767 9.41442 3.34355 9.39843C3.28946 9.38245 3.14338 9.32384 2.90532 9.22263C2.66728 9.12141 2.47791 9.02285 2.33724 8.92696C2.19622 8.83079 2.06176 8.72561 1.93472 8.61211C1.80812 8.49704 1.66908 8.34893 1.51758 8.1678C1.3661 7.98667 1.23085 7.77624 1.11181 7.5365C0.992792 7.29677 0.903522 7.0677 0.844004 6.84927C0.784724 6.63212 0.745615 6.41012 0.727158 6.186L0.697926 5.85038L0.714157 5.85357L0.730388 5.85837L0.746619 5.86636L0.762849 5.87435L0.77908 5.88234L0.795311 5.89033L1.04689 6.00221C1.21462 6.0768 1.42291 6.14073 1.67178 6.19399C1.92066 6.24726 2.06943 6.27657 2.11812 6.2819L2.19116 6.28989H2.33724L2.33401 6.28509L2.32913 6.2819L2.32426 6.2787L2.32101 6.27391L2.31778 6.26911L2.31289 6.26591L2.30803 6.26272L2.30478 6.25792L2.28855 6.24993L2.27232 6.24194L2.26909 6.23715L2.2642 6.23395L2.25933 6.23075L2.25609 6.22596L2.23986 6.21797L2.22362 6.20998L2.22039 6.20518C2.21715 6.20304 2.17061 6.16895 2.08079 6.1029C1.99206 6.03577 1.89901 5.94894 1.80162 5.84238C1.70424 5.73583 1.60685 5.62396 1.50947 5.50676C1.4119 5.38929 1.32501 5.26361 1.24977 5.13118C1.17404 4.998 1.09396 4.82857 1.00956 4.62294C0.926245 4.41837 0.862945 4.2122 0.819657 4.00443C0.776386 3.79666 0.75204 3.59156 0.746619 3.38911C0.741214 3.18666 0.746619 3.01353 0.762849 2.86969C0.77908 2.72585 0.811542 2.56336 0.860234 2.38223C0.908927 2.2011 0.979271 2.00932 1.07124 1.80687L1.2092 1.50321L1.21731 1.47923L1.22543 1.45526L1.23031 1.45206L1.23354 1.44727L1.23679 1.44247L1.24166 1.43928L1.24654 1.44247L1.24977 1.44727L1.25302 1.45206L1.25789 1.45526L1.26278 1.45846L1.26601 1.46325L1.26925 1.46805L1.27412 1.47124L1.28224 1.48722L1.29035 1.50321L1.29524 1.5064L1.29847 1.5112L1.51758 1.75093C1.66366 1.91075 1.8368 2.08923 2.03697 2.28634C2.23716 2.48345 2.34807 2.58573 2.3697 2.5932C2.39135 2.60171 2.41839 2.62621 2.45086 2.66671C2.48332 2.70614 2.59153 2.80044 2.77547 2.9496C2.95943 3.09876 3.20019 3.27191 3.49775 3.46902C3.79532 3.66613 4.12534 3.86059 4.48783 4.05237C4.85033 4.24416 5.23987 4.4173 5.65645 4.5718C6.07304 4.7263 6.3652 4.82751 6.53291 4.87546C6.70064 4.92341 6.98738 4.98467 7.39315 5.05926C7.79892 5.13384 8.10461 5.18179 8.31019 5.2031C8.51578 5.2244 8.65646 5.23666 8.73219 5.23985L8.84581 5.24305L8.84258 5.21908L8.83769 5.1951L8.80523 4.99533C8.78359 4.86215 8.77277 4.67568 8.77277 4.43595C8.77277 4.19621 8.79171 3.97513 8.82958 3.77268C8.86746 3.57024 8.92427 3.36514 9 3.15737C9.07575 2.9496 9.14988 2.78284 9.22236 2.65712C9.29595 2.53246 9.39225 2.39022 9.51127 2.2304C9.63031 2.07058 9.7845 1.90543 9.97385 1.73495C10.1632 1.56447 10.3796 1.41264 10.6231 1.27946C10.8665 1.14628 11.0911 1.04504 11.2967 0.975792C11.5023 0.906541 11.6754 0.861248 11.8161 0.839943C11.9567 0.818639 12.0271 0.806381 12.0271 0.803184Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="#"
+                   onclick="FB.ui({method: 'share', href: 'https:&#x2F;&#x2F;exyte.com&#x2F;blog&#x2F;swiftui-and-our-open-source-framework?utm_source&#x3D;facebook&amp;utm_medium&#x3D;referral&amp;utm_campaign&#x3D;website_blog'}, function(response){});return false;">
+                    <svg width="9" height="18" viewBox="0 0 9 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M5.84188 17.9991V9.7885H8.49534L8.89261 6.58865H5.8418V4.54568C5.8418 3.61924 6.08946 2.98793 7.36862 2.98793L9 2.98714V0.125217C8.71784 0.0862916 7.74937 -0.000854492 6.6228 -0.000854492C4.27062 -0.000854492 2.66027 1.49032 2.66027 4.22887V6.58865H0V9.7885H2.66027V17.9991H5.84188V17.9991Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dlinkedin%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog"
+                   onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=512,toolbar=1,resizable=0'); return false;">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3.90192 16V5.20481H0.741145V16H3.90192ZM2.32195 3.73004C3.42416 3.73004 4.11024 2.90109 4.11024 1.8652C4.0897 0.805933 3.4242 0 2.34288 0C1.2617 0 0.554688 0.805945 0.554688 1.8652C0.554688 2.90115 1.24059 3.73004 2.30134 3.73004H2.32188H2.32195Z"
+                              fill="#CEC0AD"/>
+                        <path d="M5.88867 16H9.67423V9.69485C9.67423 9.3574 9.69883 9.02031 9.79879 8.77909C10.0725 8.10488 10.6953 7.4066 11.7411 7.4066C13.1109 7.4066 13.6589 8.44197 13.6589 9.95977V16H17.4442V9.52608C17.4442 6.05808 15.5766 4.44446 13.086 4.44446C11.0438 4.44446 10.1472 5.57606 9.64904 6.34679H9.67432V4.70932H5.88876C5.93843 5.76875 5.88876 15.9998 5.88876 15.9998L5.88867 16Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="https://www.reddit.com/submit?url=https%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dreddit%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog&amp;title=How%20SwiftUI%20replaced%20our%20open-source%20framework">
+                    <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M15.9565 7.14002C17.0472 7.1031 17.96 7.95216 18.0003 9.0395C18.0137 9.79795 17.5875 10.496 16.9096 10.835C16.923 11.033 16.923 11.231 16.9096 11.429C16.9096 14.4561 13.3858 16.9126 9.03981 16.9126C4.69382 16.9126 1.17004 14.4527 1.17004 11.429C1.15661 11.231 1.15661 11.033 1.17004 10.835C0.972035 10.7477 0.794168 10.6235 0.639792 10.4792C-0.155575 9.73419 -0.192491 8.48577 0.552537 7.69375C1.29756 6.89839 2.54599 6.86147 3.338 7.6065C4.89518 6.55272 6.72419 5.97549 8.60354 5.94529L9.60026 1.26034V1.25363C9.6506 1.02542 9.87545 0.884468 10.1003 0.934808L13.4093 1.59594C13.6207 1.22678 14.0033 0.978436 14.4295 0.934808C15.1712 0.854264 15.8357 1.39122 15.9162 2.13289C15.9968 2.87457 15.4598 3.53905 14.7181 3.61959C13.9765 3.70014 13.312 3.16318 13.2314 2.42151L10.3419 1.81407L9.46602 6.02583C11.3219 6.0661 13.1274 6.63998 14.6644 7.68704C15.0135 7.3548 15.4732 7.1568 15.9565 7.14002ZM5.85137 9.04053C5.10634 9.04053 4.4989 9.64796 4.4989 10.393C4.4989 11.138 5.10298 11.7387 5.85137 11.7454C6.59639 11.7454 7.20383 11.138 7.20383 10.393C7.20383 9.64796 6.59639 9.04053 5.85137 9.04053ZM12.3421 14.1023C11.3823 14.8238 10.2077 15.193 9.0063 15.1426C7.80486 15.193 6.63027 14.8238 5.67046 14.1023C5.54293 13.9479 5.56642 13.7163 5.7208 13.5888C5.85504 13.4781 6.04633 13.4781 6.18392 13.5888C6.99607 14.1828 7.98608 14.4848 8.99288 14.4379C9.99967 14.4916 10.993 14.2029 11.8153 13.6156C11.9629 13.4713 12.2046 13.4747 12.3489 13.6224C12.4932 13.77 12.4898 14.0117 12.3421 14.156V14.1023ZM10.7484 10.4399C10.7484 11.1849 11.3559 11.7923 12.1009 11.7923L12.0908 11.8427H12.158C12.903 11.8125 13.4836 11.1849 13.4534 10.4399C13.4534 9.69484 12.8459 9.0874 12.1009 9.0874C11.3559 9.0874 10.7484 9.69484 10.7484 10.4399Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a class="post__share-item" href="https://telegram.me/share/url?url=https%3A%2F%2Fexyte.com%2Fblog%2Fswiftui-and-our-open-source-framework%3Futm_source%3Dtelegram%26utm_medium%3Dreferral%26utm_campaign%3Dwebsite_blog&amp;text=How%20SwiftUI%20replaced%20our%20open-source%20framework%22">
+                    <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                              d="M18 1.3845C17.9976 1.36687 17.9953 1.34911 17.9931 1.33132L17.9931 1.33126C17.9873 1.28511 17.9815 1.23876 17.9723 1.19385C17.8266 0.489117 17.4418 0.276269 16.7529 0.512899C16.6851 0.535747 16.6162 0.553252 16.5473 0.570787C16.5133 0.579413 16.4794 0.588045 16.4455 0.597324C16.3257 0.646995 16.2063 0.697745 16.0868 0.748505C15.8231 0.860575 15.5592 0.972692 15.2908 1.07336C14.8323 1.24688 14.3705 1.41242 13.9081 1.5782C13.7189 1.64605 13.5295 1.71395 13.3402 1.78245C13.215 1.83476 13.0901 1.88781 12.9652 1.94087C12.6935 2.05627 12.4218 2.1717 12.1471 2.27949C11.4536 2.55149 10.7591 2.8199 10.0645 3.08837L10.0642 3.0885C9.75273 3.20886 9.44128 3.32924 9.12986 3.44995C7.05908 4.251 4.98791 5.05166 2.91555 5.85271C2.77206 5.90832 2.6282 5.96302 2.48433 6.01773C2.16161 6.14044 1.83887 6.26316 1.52028 6.39612L1.40151 6.44514L1.40151 6.44514C1.03508 6.59611 0.665759 6.74827 0.329248 6.95143C0.164122 7.05092 -0.0175941 7.31252 0.00136758 7.47859C0.0143463 7.59834 0.148436 7.70576 0.281009 7.81196L0.281014 7.81196C0.334058 7.85445 0.386858 7.89675 0.431562 7.93956C0.454319 7.96145 0.489975 7.9714 0.524364 7.98101C0.532955 7.9834 0.541466 7.98578 0.549678 7.98832L0.551364 7.98884L0.552874 7.98931C1.64961 8.32985 2.74635 8.67039 3.84388 9.01014C3.83796 9.12509 3.85099 9.24241 3.88694 9.35854L4.28632 10.644L4.81133 12.3305C4.84609 12.4409 4.88098 12.5502 4.91571 12.6591L4.91585 12.6595C4.94264 12.7435 4.96934 12.8271 4.99581 12.9108L5.03371 13.0299C5.17122 13.4622 5.31228 13.9056 5.44141 14.3404C5.74875 15.3706 6.57753 15.4503 6.82443 15.4503C6.85181 15.4503 6.8805 15.4489 6.90937 15.4476H6.90939L6.93899 15.4463C6.97691 15.4479 7.01484 15.4491 7.05237 15.4491C7.6864 15.4491 8.09368 15.0987 8.33623 14.889C8.38087 14.8498 8.42354 14.8137 8.45435 14.7899C8.50452 14.7523 8.55153 14.7114 8.59182 14.6659C8.6077 14.6493 8.62289 14.6325 8.63802 14.6157C8.65301 14.5991 8.66795 14.5825 8.68347 14.5664C8.73443 14.5093 8.78223 14.4558 8.8245 14.4138C9.19307 14.0475 9.56084 13.6825 9.9302 13.317L10.3679 12.8838C10.4295 12.9266 10.4912 12.969 10.5532 13.0114C10.846 13.2308 11.1386 13.4504 11.4313 13.67L11.4329 13.6712L11.4335 13.6716C12.1356 14.1985 12.8379 14.7256 13.5428 15.2489C14.2886 15.8022 14.8101 15.6587 15.1711 14.8133C15.2938 14.2441 15.416 13.674 15.5378 13.1052L15.5384 13.1026L15.6302 12.6741C15.77 11.9627 15.9083 11.2532 16.0465 10.5433C16.118 10.2299 16.1886 9.91575 16.2591 9.60227L16.3108 9.37242C16.5439 8.2737 16.7766 7.17379 17.0085 6.07467C17.0518 5.87324 17.0946 5.67194 17.1374 5.47062L17.1378 5.46872C17.1694 5.32008 17.201 5.17144 17.2328 5.02272C17.2401 4.98957 17.2479 4.95636 17.2557 4.92308C17.2675 4.8728 17.2793 4.82239 17.2893 4.77183C17.5049 3.74801 17.7193 2.72484 17.9337 1.70084L18 1.3845ZM8.17565 11.3002L8.79843 11.7659L8.80223 11.7687C9.04145 11.9477 9.28085 12.1268 9.52035 12.3057L9.24063 12.5826L9.23861 12.5846C8.86384 12.9555 8.48896 13.3265 8.1156 13.697C8.08958 13.7238 8.06455 13.7513 8.03949 13.7789L8.03946 13.7789C8.02269 13.7974 8.0059 13.8158 7.9888 13.8341L8.01131 13.5273C8.06504 12.7853 8.11916 12.0422 8.17565 11.3002ZM8.99883 6.56886C9.95178 5.96508 10.9046 5.36135 11.8575 4.75832C12.6511 4.25652 13.4436 3.75592 14.249 3.27433C14.3416 3.21969 14.464 3.21532 14.5868 3.21094C14.6448 3.20887 14.7028 3.2068 14.7578 3.19942C14.7336 3.24188 14.7118 3.28717 14.6901 3.33246C14.6566 3.40215 14.6231 3.47183 14.5805 3.53118C13.6237 4.41784 12.6602 5.29777 11.6943 6.17453C11.3443 6.49185 10.9914 6.80637 10.6383 7.12096C10.2271 7.48736 9.81587 7.85384 9.40906 8.22492C9.1116 8.49524 8.81967 8.76952 8.52734 9.0442C8.4195 9.14567 8.31086 9.24793 8.20341 9.3498C8.11979 9.42824 8.03633 9.50716 7.95288 9.58606C7.84828 9.68496 7.74372 9.78383 7.6389 9.88172C7.61952 9.90195 7.60032 9.92229 7.58108 9.94268C7.56151 9.96341 7.54189 9.9842 7.52197 10.005C7.50366 10.0226 7.48446 10.0403 7.46533 10.058C7.45598 10.0666 7.44664 10.0753 7.43744 10.0839C7.42175 10.1003 7.40607 10.1168 7.39038 10.1332C7.32746 10.1993 7.26453 10.2654 7.2016 10.3304C7.15696 10.3772 7.10047 10.5191 7.22925 10.5932C7.21306 10.7268 7.19725 10.8623 7.18738 10.9959C7.13495 11.6933 7.08457 12.3903 7.03418 13.0872C7.00181 13.535 6.96944 13.9829 6.93653 14.4308C6.63314 14.4839 6.48935 14.3337 6.40639 14.053C6.2633 13.5715 6.1104 13.0923 5.95752 12.613C5.89558 12.4189 5.83364 12.2247 5.77236 12.0304C5.4749 11.0728 5.17664 10.1156 4.87839 9.15875L4.88601 9.15528C4.93474 9.13311 4.9826 9.11134 5.02653 9.08384C6.35095 8.24655 7.67498 7.40765 8.99883 6.56886Z"
+                              fill="#CEC0AD"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </div>
+        <div class="post__recommended">
+            <div class="post__recommended-title"><span class="post__recommended-title-slash">//</span> Keep reading</div>
+            <div class="post__recommended-items">
+                    <a class="post__recommended-item" target="_blank" href="swiftui-tutorial-slider-control.html">
+                        <div class="post__recommended-icon"><img src="../upload/Untitledff_30x30.jpg" alt="icon" loading="lazy"/></div>
+                        <div class="post__recommended-text">iOS Department • 2 Oct 2019</div>
+                        <div class="post__recommended-name">SwiftUI tutorial for slider control</div>
+                        <div class="post__recommended-description">We tried out SwiftUI for creating a liquid-like motion graphics with spring animation. We chose a flow of several sequential screens as our canvas.</div>
+                    </a>
+                    <a class="post__recommended-item" target="_blank" href="swiftui-tutorial-replicating-activity-application.html">
+                        <div class="post__recommended-icon"><img src="../upload/Untitled33_30x30.jpg" alt="icon" loading="lazy"/></div>
+                        <div class="post__recommended-text">iOS Department • 23 Dec 2019</div>
+                        <div class="post__recommended-name">SwiftUI tutorial: replicating the Activity application</div>
+                        <div class="post__recommended-description">This article is the third one in the Replicating series where we recreate UI elements of high-quality apps. Here we take a look at Apple’s Activity app.</div>
+                    </a>
+                    <a class="post__recommended-item" target="_blank" href="replicating-apple-card-application-using-swiftui.html">
+                        <div class="post__recommended-icon"><img src="../upload/Untitled4444_30x30.jpg" alt="icon" loading="lazy"/></div>
+                        <div class="post__recommended-text">iOS Department • 11 Sept 2019</div>
+                        <div class="post__recommended-name">SwiftUI tutorial: replicating the Apple Card application</div>
+                        <div class="post__recommended-description"> This article is the second one in the Replicating series where we recreate UI elements of high-quality apps. Here we take a look at Apple Card app.</div>
+                    </a>
+            </div>
+        </div>
+</div>
+<footer class="footer">
+  <div class="footer__copyright">© Exyte 2023</div>
+  <div class="footer__links">
+    <a class="footer__link" href="https://twitter.com/exytehq" target="_blank">twitter</a>
+    <a class="footer__link" href="https://github.com/exyte" target="_blank">github</a>
+    <a class="footer__link" href="https://clutch.co/profile/exyte#summary" target="_blank">clutch</a>
+    <a class="footer__link" href="mailto:hello@exyte.com" target="_blank">email</a>
+  </div>
+  <a class="footer__back" href="#first"><span class="footer__back-word">back to </span>top
+    <div class="footer__back-arrow">
+      <img class="arrow" src="../img/arrow-right.svg" alt="arrow"/>
+    </div>
+  </a>
+</footer><div class="main-modal">
+    <button class="main-modal__header">
+        <img class="main-modal__header-img" src="../img/send-a-letter.svg"
+             alt="send a letter" onclick="showModal()">
+        <img class="main-modal__header-img--small" src="../img/send-a-letter-small.svg"
+             alt="send a letter" onclick="showModal()">
+    </button>
+    <div class="main-modal__form-sent">
+        <img class="main-modal__form-sent-img" src="../img/sent.png" alt="sent image" loading="lazy"/>
+        <div class="main-modal__form-sent-title">Thank you for<br> contacting us!</div>
+        <div class="main-modal__form-sent-text">Your request has been sent, please wait for a response.</div>
+        <button class="main-modal__button" type="button" onclick="closeModal()">GREAT</button>
+    </div>
+    <form class="main-modal__form" id="sendForm">
+        <div class="main-modal__title">Send a letter</div>
+        <label class="main-modal__block" data-name="email">
+            <div class="main-modal__label">E-mail</div>
+            <input class="main-modal__input" type="email" name="email"/>
+            <div class="main-modal__error">*This is a required field</div>
+        </label>
+        <label class="main-modal__block">
+            <div class="main-modal__label">Budget</div>
+            <input class="main-modal__input" name="budget"/>
+        </label>
+        <label class="main-modal__block">
+            <div class="main-modal__label">Required expertise</div>
+            <input class="main-modal__input" name="requiredExpertise"/>
+        </label>
+        <label class="main-modal__block">
+            <div class="main-modal__label">Other details and questions</div>
+            <textarea class="main-modal__textarea" name="otherDetails"></textarea>
+        </label>
+        <label class="main-modal__checkbox">
+            <input type="checkbox" name="isAgreed">
+            <span class="check__box"></span>
+            <span>I agree to Exyte’s Terms of use and user's agreements</span>
+        </label>
+        <button class="main-modal__button main-modal__button--disabled" type="button" id="sendButton">submit</button>
+    </form>
+</div><script src="../js/common.js"></script>
+</body>
+
+<!-- Mirrored from exyte.com/blog/swiftui-and-our-open-source-framework by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 May 2024 06:27:01 GMT -->
+</html>

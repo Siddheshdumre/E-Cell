@@ -1,0 +1,36 @@
+<svg width="700" height="530" viewBox="0 0 700 530" fill="none" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M238.38100000000003,265.187a111.236,333.708 0 1,0 222.472,0a111.236,333.708 0 1,0 -222.472,0"
+              id="circle1"/>
+    </defs>
+    <ellipse cx="349.617" cy="265.187" rx="111.236" ry="333.708" transform="rotate(-60 349.617 265.187)"
+             stroke="#A3987E" stroke-dasharray="2 4"/>
+    <ellipse cx="349.618" cy="265.189" rx="111.236" ry="333.708" transform="rotate(-120 349.618 265.189)"
+             stroke="#A3987E" stroke-dasharray="2 4"/>
+    <ellipse cx="349.616" cy="265.185" rx="111.236" ry="333.708" transform="rotate(-90 349.616 265.185)"
+             stroke="#A3987E" stroke-dasharray="2 4"/>
+    <ellipse cx="349.494" cy="265.564" rx="111.5" ry="240" stroke="#A3987E" stroke-dasharray="2 4"/>
+    <g transform="rotate(-60 349.617 265.187)">
+        <circle id="point1" r="8" fill="#A3987E">
+            <animateMotion dur="4s" repeatCount="indefinite"  keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+                <mpath xlink:href="#circle1"/>
+            </animateMotion>
+        </circle>
+    </g>
+    <g transform="rotate(-120 349.618 265.189)">
+        <circle id="point2" r="8" fill="#A3987E">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="-3s">
+                <mpath xlink:href="#circle1"/>
+            </animateMotion>
+        </circle>
+    </g>
+    <g transform="rotate(-90 349.616 265.185)">
+        <circle id="point3" r="8" fill="#A3987E">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="-1s">
+                <mpath xlink:href="#circle1"/>
+            </animateMotion>
+        </circle>
+    </g>
+    <circle cx="349.994" cy="265.564" r="240" stroke="#A3987E"/>
+</svg>

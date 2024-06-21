@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from exyte.com/work-of-art-anndroid-development-case-study by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 May 2024 06:28:45 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MMWH6V3L');</script>
+  <!-- End Google Tag Manager -->
+	
+  <meta charset="UTF-8">
+  <title>An mobile wellness app for Android</title>
+  <meta name="description" content="HES wanted to have a native app developed to cater to their Android-based client base with the best user experience.">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/boostrap.css">
+  <link rel="stylesheet" href="css/exyte.css">
+  <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="img/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="img/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="canonical" href="work-of-art-anndroid-development-case-study.html">
+  <link rel="alternate" hreflang="x-default" href="work-of-art-anndroid-development-case-study.html">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMWH6V3L"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="header-wrapper">
+    <header>
+        <div class="header">
+            <nav class="header__nav">
+                <div class="header__logo">
+                    <a class="" href="index.html">
+                        <img src="img/logo-sm.svg" alt="Exyte homepage" width="71" height="20">
+                    </a>
+                </div>
+                <button class="btn-open-menu"><span></span></button>
+                <ul class="header__page-nav list">
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="services.html">Services</a>
+                    </li>
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <!--li class="header__page-nav-item">
+                        <a class="page-nav__link" href="/team">Team</a>
+                    </li-->
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="contacts.html">Contacts</a>
+                    </li>
+                    <li>
+                        <div class="header__page-nav-hire common-page-link-arrow common-page-link-arrow--black">
+                            Hire us
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header__mobile-nav">
+            <ul class="page-nav list">
+                <li class="page-nav__item">
+                    <a class="page-nav__link" href="services.html">Services</a>
+                </li>
+                <li class="page-nav__item">
+                    <a class="page-nav__link" href="portfolio.html">Portfolio</a>
+                </li>
+                <!--li class="page-nav__item">
+                    <a class="page-nav__link" href="/team">Team</a>
+                </li-->
+                <li class="page-nav__item">
+                    <a class="page-nav__link" href="blog.html">Blog</a>
+                </li>
+                <li class="page-nav__item ">
+                    <a class="page-nav__link" href="contacts.html">Contacts</a>
+                </li>
+                <li class="page-nav__item">
+                    <div class="header__page-nav-hire">
+                        Hire us
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header-hire">
+            <div class="header-hire__background"></div>
+            <div class="header-hire__container">
+                <div class="header-hire__close"></div>
+                <h3 class="header-hire__heading">Hire us</h3>
+                <h2 class="header-hire__heading-title">Work with Exyte</h2>
+                <div class="contacts__form-body">
+                    <form class="contacts__form form__hire-us">
+                        <div class="contacts__form-group">
+                            <div class="contacts__form-field" data-name="name"  data-required="true">
+                                <div class="contacts__form-field-caption">Your name</div>
+                                <input type="text" class="contacts__form-input" name="name">
+                                <div class="contacts__form-error"></div>
+                            </div>
+                            <div class="contacts__form-field" data-name="email" data-required="true">
+                                <div class="contacts__form-field-caption">E-mail</div>
+                                <input class="contacts__form-input" type="email" data-match="@" name="email">
+                                <div class="contacts__form-error"></div>
+                            </div>
+                        </div>
+                        <div class="contacts__form-group ">
+                            <div class="contacts__form-field" data-name="company">
+                                <div class="contacts__form-field-caption">Website or company name (optional)</div>
+                                <input type="text" class="contacts__form-input" name="company" >
+                                <div class="contacts__form-error"></div>
+                            </div>
+                        </div>
+                        <div class="contacts__form-group">
+                            <div class="contacts__form-field" data-name="help" data-required="true">
+                                <div class="contacts__form-field-caption">How can we help?</div>
+                                <textarea class="contacts__form-textarea" style="height: 32px;"
+                                          name="help"></textarea>
+                                <div class="contacts__form-error"></div>
+                            </div>
+                        </div>
+                        <label class="check option contacts__form-agreement">
+                            <input class="check__input" type="checkbox">
+                            <span class="check__box"></span>
+                            <div class="contacts__form-agreement-text">I  agree to Exyte’s <a href="terms-of-use-and-user-agreement.html" target="__blank">Terms of use and user's agreements</a></div>
+                        </label>
+                        <button class="btn contacts__form-submit" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="header-hire__form-response">
+                    Thank you for your interest! A member of our team will be in touch as soon as possible.
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+      function setCurrentNavigation() {
+        const navLinks = [...document.getElementsByClassName('header__page-nav-item')].slice(0, -1);
+        const mobileNavLinks = [...document.getElementsByClassName('page-nav__item')].slice(0, -1);
+        navLinks.map(navLink => {
+          const url = navLink.getElementsByClassName('page-nav__link')[0].href.split('index.html')[3];
+          if (url === window.location.pathname.slice(1))
+            navLink.classList.add('current')
+          else navLink.classList.remove('current')
+        })
+        mobileNavLinks.map(navLink => {
+          const url = navLink.getElementsByClassName('page-nav__link')[0].href.split('index.html')[3];
+          if (url === window.location.pathname.slice(1))
+            navLink.classList.add('current')
+          else navLink.classList.remove('current')
+        })
+      }
+      setCurrentNavigation();
+      function handleHireUs() {
+        const hireUsElements = [...document.getElementsByClassName('header__page-nav-hire')];
+        const headerNavElement = [...document.getElementsByClassName('header-wrapper')][0];
+        const closeHireUsElement = [...document.getElementsByClassName('header-hire__close')][0];
+        function handleHireUsClick() {
+          headerNavElement.classList.toggle('header-hire__open');
+        }
+        hireUsElements.forEach((hireUsElement) => hireUsElement.addEventListener('click', handleHireUsClick));
+        closeHireUsElement.addEventListener('click', handleHireUsClick);
+      }
+      handleHireUs();
+      function handleHireUsSubmit() {
+        const formElem = document.querySelector('.form__hire-us');
+        formElem.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const formData = new FormData(formElem);
+          const fields = document.getElementsByClassName('contacts__form-field');
+          let isError = false;
+          for (field of fields) {
+            const {required:isRequired, name} = field.dataset || {};
+            const value = formData.get(name);
+            if (!/\S/.test(value) && !!isRequired) {
+              field.classList.add('contacts__form-field--failed');
+              field.getElementsByClassName('contacts__form-error')[0].innerHTML = 'This field is required';
+              isError = true;
+            }
+          }
+          const agreementInput = document.querySelector(".form__hire-us .contacts__form-agreement input");
+          if(!agreementInput.checked) {
+            isError = true;
+            const agreement = document.querySelector(".form__hire-us .contacts__form-agreement");
+            agreement.classList.add('contacts__form-agreement--failed');
+          }
+          if(isError) return;
+          const data = JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            company: formData.get('company'),
+            help: formData.get('help')
+          });
+          const xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("POST.html", "/contact");
+          xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+          xmlhttp.send(data);
+          dataLayer.push({'FormSubmit': 'Success', 'event': 'formSubmission'});
+          document.getElementsByClassName('header-hire__container')[0].classList.add('header-hire__form--sent');
+        });
+      }
+      handleHireUsSubmit()
+    </script>
+</div>
+<div class="common-page case-page">
+	<div class="case-page__header">
+		<div class="case-page__header_left">
+			<div class="case-page__title">Work of Art</div>
+			<div class="case-page__description">Developing a native Android application for a mental health program</div>
+			<div class="case-page__project">
+				<div class="case-page__project-details">
+					<div class="case-page__project-values">2019-2020</div>
+					<div class="case-page__project-text">Project length</div>
+				</div>
+			</div>
+			<div class="case-page__project-team">
+				<img class="case-page__project-team-img" class="first-screen__item" src="img/team/AA-min.jpg" alt="" width="30" height="30">
+				<img class="case-page__project-team-img" class="first-screen__item" src="img/team/NA-min.jpg" alt="" width="30" height="30">
+			</div>
+		</div>
+		<div class="case-page__header_right">
+			<img class="case-page__header_image" src="img/cases/workofart.svg" alt="Work of Art">
+		</div>
+	</div>
+	<a class="first-screen__scroll-down-wrap" href="#page-content">
+		<div class="case-page__scroll-down">Scroll down</div>
+	</a>
+</div>
+<div class="case-page__divider"></div>
+<div class="common-page case-page" id="page-content">
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Background</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">HES creates workplace wellness challenges for corporations, hospitals, and other companies to improve the health of individuals and organizations throughout North America and in Europe, Asia, and Africa. Each program is accompanied by unique iOS and Android applications.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">We have had an ongoing partnership with HES for several years, and we regularly help them create applications that improve the well-being of people.</p>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Objective</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">HES asked us to help create an application where the user gradually reveals a “work of art” by completing tasks that improve mental health. We worked together with their team to build a mobile client on Android according to their design.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/workofart/Work-of-Art-G-2.jpg" alt="Native Android development for Health Enhancement Systems">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Features</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">First of all, the user selects an image with which he will work. They can choose one of those presented in the application or upload their own. The user also chooses the style of the painting. The image is processed on the server, after which the user sees a canvas on the main page with a sketch of his painting.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">To begin ”drawing” a piece of art, the user must go to an assignment screen with a list of articles on different mental health prevention techniques and practices. To get points for ”painting” a picture, the user must answer a question about the contents of the article. Every day, they can complete a limited number of tasks (the limit is set in the dashboard).</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/workofart/Work-of-Art-G-2.gif" alt="Native Android development for Health Enhancement Systems">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title"></div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">After earning any number of points, the user can return to his studio to watch the progress of ”drawing” the picture. The image animates as if it were being painted with a brush. Animation frames are generated on the server.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">The finished painting can be named, framed, and hung in the gallery for other users to see. You can add someone else's pictures to your favorites, comment, and look at the original image. If the user has finished his painting within a week, they receive bonus points, which they can send to a friend, teammate, or random user, or keep them.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">There is an option for groups. Any user can create their own group or send a request to join an existing one. The team leader can invite other users. As soon as four people are recruited in a team, it is considered official and can compete with other groups. Points earned on the mission screen are credited both to the user personally and to his team.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/workofart/Work-of-Art-G-3.jpg" alt="Native Android development for Health Enhancement Systems">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title"></div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">At the beginning and at the end of the program, the user takes a mental health survey. After the final survey, statistics on his activities during the program becomes available to him.</p>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Process</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">We worked together with two developers on the HES side. Our responsibility was to build a mobile client for the app on Android.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">Slack and ClickUp were used to communicate with the client. We divided the workload into segments (screens), and created a ClickUp task for each segment. During the first stage of development, we also supplied the client with daily reports.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">The app itself is written in Kotlin. To develop it, we used Google’s Android Jetpack set of components and RxKotlin, an implementation for reactive programming in Kotlin. The technology stack was chosen by the client.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/workofart/Work-of-Art-G-1.gif" alt="Native Android development for Health Enhancement Systems">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title"></div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">From Android Jetpack, particular components that should be featured are:</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">Room</p>
+				<p class="page__text">Room is a persistence library — a lightweight wrapper over SQLite that supports RxKotlin integration for change monitoring.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">ViewModel</p>
+				<p class="page__text">The ViewModel class stores and manages UI-related data. ViewModel in combination with NavigationGraph is convenient because you can bind the ViewModel to the lifecycle of the navigation graph branch, which is repeatedly used in the application.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">NavigationGraph</p>
+				<p class="page__text">Unlike FragmentManager, it allows you to visually see the structure of the application, simplifies the transfer of parameters between fragments, eliminates the need to use string constants.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">In contrast to regular mobile apps, Work of Art is distinguished by a large number of custom UI elements, the ability to change behavior through a dashboard, and the need to support Web Content Accessibility Guidelines.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/workofart/Work-of-Art-G-1.jpg" alt="Native Android development for Health Enhancement Systems">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title"></div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">For example, to make sure that the app is accessible, we needed to have the views spacious enough to fit enlarged text if necessary. Additionally, since we needed to support TalkBack, Android’s built-in screen reader, custom views needed to be declared properly so that the service would know how to announce them.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">For complex screens (like ones involving pop-ups), we also needed to control the focus order of elements in the views so that it would be logical.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">In total, we created a database and binding APIs and built 5 complex screens (quests, studio, friends, team, and gallery) and multiple smaller ones and navigation between them. </p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/workofart/Work-of-Art-G-4.jpg" alt="Native Android development for Health Enhancement Systems">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title"></div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">The development took nine months in total, but we continue to support the application by doing both bug fixing and UI changes that take into mind user feedback.</p>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Challenges</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">There were two challenges that we had to conquer during the development process.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">Design unsuited for screen readers</p>
+				<p class="page__text">The design of the application did not support TalkBack (an accessibility service for Android) well since there was a lot of pop-up content overlapping other content, images without captions, complex navigation.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">We submitted feedback on how to improve specific places in the design and, together with the client, came to solutions that included design changes and/or technological solutions.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">Changes in the navigation</p>
+				<p class="page__text">During the development process, the app’s navigation changed. As a result, it turned out that our solution that used NavigationGraph did not work everywhere.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/workofart/Work-of-Art-G-5.jpg" alt="Native Android development for Health Enhancement Systems">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title"></div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">For example, nested fragments within one ViewPager. Or the studio screen. In it, the fragments do not go on the stack but are replaced, and, at the same time, it is necessary to keep a common ViewModel in memory. We had to go back to FragmentManager in some of these cases.</p>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Technology</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="description">Development</p>
+				<p class="page__text"></p>
+				<ul class="page__list--default">
+					<li class="page__item--default page__item-text">Kotlin,</li>
+					<li class="page__item--default page__item-text">Android Jetpack,</li>
+					<li class="page__item--default page__item-text">RxKotlin.</li>
+				</ul>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">Communications, project management</p>
+				<p class="page__text"></p>
+				<ul class="page__list--default">
+					<li class="page__item--default page__item-text">Slack,</li>
+					<li class="page__item--default page__item-text">ClickUp.</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Results</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">Working with people from the HES development team, we built a mobile app on Android that considers the accessibility requirements of WCAG. The program is available on the HES website and has already collected positive reviews and testimonials.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__review-block">
+		<div class="case-page__block-title">Review</div>
+		<p class="case-page__review-quote">«Exyte was communicative and responsive throughout the project. They are reliable enough to follow exact specifications and talented enough to improvise when necessary. They worked well across multiple time zones and met all project deadlines.»</p>
+		<div class="case-page__review-author">
+			<div class="case-page__review-photo">
+				<img class="case-page__review-photo-img" src="img/reviews/Cal-Hockaday.jpg" alt="Work of Art reviewer image" width="48" height="48">
+			</div>
+			<div >
+				<div class="case-page__review-name">Cal Hockaday</div>
+				<div class="case-page__review-position">Lead Mobile Developer at Health Enhancement Systems</div>
+			</div>
+		</div>
+		<a class="common-page-link-arrow common-page-link-arrow--black" target="_ blank" href="https://clutch.co/profile/exyte?loginattempt=1&amp;loginsalt=02crl6wlob&amp;page=1#review-476087">Read more on Clutch</a>
+	</div>
+
+
+	<div class="case-page__see-cases-block">
+		<h2 class="case-page__see-cases-title">See cases</h2>
+		<div class="case-page__other-cases-block portfolio-page__other-cases">
+			<div class="portfolio-page__case " data-type="ar">
+				<a href="ar-development-case-study.html">
+					<div class="portfolio-page__case-wrap-img">
+						<img class="portfolio-page__case-img" src="img/cases/airmeasure.svg" alt="">
+					</div>
+					<div class="portfolio-page__case-wrap-text">
+						<p class="portfolio-page__case-title">
+							AirMeasure
+						</p>
+						<p class="portfolio-page__case-text">Developing different measurement modes in an AR app for iOS</p>
+						<div class="portfolio-page__case-see link link--line">See case</div>
+					</div>
+				</a>
+			</div>
+			<div class="portfolio-page__case " data-type="vr">
+				<a href="thedeep-vr-development-case-study.html">
+					<div class="portfolio-page__case-wrap-img">
+						<img class="portfolio-page__case-img" src="img/cases/thedeep.svg" alt="">
+					</div>
+					<div class="portfolio-page__case-wrap-text">
+						<p class="portfolio-page__case-title">
+							The Deep
+						</p>
+						<p class="portfolio-page__case-text">Developing a multiplayer FPS game for a free-roam immersive VR</p>
+						<div class="portfolio-page__case-see link link--line">See case</div>
+					</div>
+				</a>
+			</div>
+			<div class="portfolio-page__case " data-type="mobile">
+				<a href="work-of-art-anndroid-development-case-study.html">
+					<div class="portfolio-page__case-wrap-img">
+						<img class="portfolio-page__case-img" src="img/cases/workofart.svg" alt="">
+					</div>
+					<div class="portfolio-page__case-wrap-text">
+						<p class="portfolio-page__case-title">
+							Work of Art
+						</p>
+						<p class="portfolio-page__case-text">Developing a native Android application for a mental health program</p>
+						<div class="portfolio-page__case-see link link--line">See case</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<footer class="footer-module">
+    <div class="footer-module__wrap">
+        <span class="footer-module__copyright">
+            <span>© Exyte 2021</span>
+        </span>
+        <div class="footer-module__contacts">
+            <div class="footer-module__contact">
+                <img class="footer-module__icon"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE4IDE0Ij4NCiAgICA8cGF0aCBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0xNS45OSAxLjI2MkExLjk5IDEuOTkgMCAwIDAgMTUgMUgzYy0uMzYgMC0uNjk4LjA5NS0uOTkuMjYyTDkgNy44MTVsNi45OS02LjU1M3ptLjcxOC42OTdMOSA5LjE4NSAxLjI5MiAxLjk2QTEuOTkgMS45OSAwIDAgMCAxIDN2OGEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWM2ExLjk5IDEuOTkgMCAwIDAtLjI5Mi0xLjA0MXpNMyAwaDEyYTMgMyAwIDAgMSAzIDN2OGEzIDMgMCAwIDEtMyAzSDNhMyAzIDAgMCAxLTMtM1YzYTMgMyAwIDAgMSAzLTN6IiBvcGFjaXR5PSIuNSIvPg0KPC9zdmc+DQo="
+                     alt="">
+                <a class="footer-module__link" href="mailto:sales@exyte.com">sales@exyte.com</a>
+            </div>
+            <div class="footer-module__contact">
+                <img class="footer-module__icon"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDEyIDE4Ij4NCiAgICA8cGF0aCBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0xMSA2QTUgNSAwIDEgMCAxIDZjMCAxLjc4OCAxLjY2NyA1LjI1MyA1IDEwLjIyM0M5LjMzMyAxMS4yNTMgMTEgNy43ODggMTEgNnpNNiAxOEMyIDEyLjIxIDAgOC4yMSAwIDZhNiA2IDAgMSAxIDEyIDBjMCAyLjIxLTIgNi4yMS02IDEyek02IDhhMiAyIDAgMSAwIDAtNCAyIDIgMCAwIDAgMCA0em0wIDFhMyAzIDAgMSAxIDAtNiAzIDMgMCAwIDEgMCA2eiIgb3BhY2l0eT0iLjUiLz4NCjwvc3ZnPg0K"
+                     alt="">
+                <a class="footer-module__link" target="_ blank" href="https://goo.gl/maps/Bx4XckDoSB2Ah938A" rel="nofollow">408 Broadway, NYC</a>
+            </div>
+
+        </div>
+        <ul class="footer-module__social-nav">
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://www.instagram.com/exyte.agency/" rel="nofollow">
+                    <img src="img/share/instagram.svg"
+                         alt="Open Exyte's Instagram in new tab">
+                </a>
+            </li>
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://twitter.com/exytehq" rel="nofollow">
+                    <img src="img/share/twitter.svg"
+                         alt="Open Exyte's Twitter in new tab">
+                </a>
+            </li>
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://github.com/exyte" rel="nofollow">
+                    <img src="img/share/github.svg"
+                         alt="Open Exyte's Github in new tab">
+                </a>
+            </li>
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://clutch.co/profile/exyte" rel="nofollow">
+                    <img src="img/icons/clutch.svg"
+                         alt="Open Exyte's Clutch in new tab">
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+	<script src="js/main.js"></script>
+</body>
+
+<!-- Mirrored from exyte.com/work-of-art-anndroid-development-case-study by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 May 2024 06:28:52 GMT -->
+</html>

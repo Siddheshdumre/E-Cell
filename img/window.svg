@@ -1,0 +1,24 @@
+<svg width="314" height="281" viewBox="0 0 314 281" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="0.5" y="0.5" width="313" height="280" fill="#191919" stroke="#CEC0AD"/>
+<line x1="46" y1="6.5" x2="291" y2="6.5" stroke="#CEC0AD"/>
+<line x1="7" y1="6.5" x2="25" y2="6.5" stroke="#CEC0AD"/>
+<line x1="7" y1="10.5" x2="25" y2="10.5" stroke="#CEC0AD"/>
+<line x1="7" y1="14.5" x2="25" y2="14.5" stroke="#CEC0AD"/>
+<line x1="1" y1="255.5" x2="313" y2="255.5" stroke="#CEC0AD"/>
+<line x1="1" y1="258.5" x2="313" y2="258.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="1" y1="261.5" x2="313" y2="261.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="1" y1="264.5" x2="313" y2="264.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="1" y1="267.5" x2="313" y2="267.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="1" y1="270.5" x2="313" y2="270.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="1" y1="273.5" x2="313" y2="273.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="1" y1="276.5" x2="313" y2="276.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="1" y1="279.5" x2="313" y2="279.5" stroke="#CEC0AD" stroke-dasharray="1 2"/>
+<line x1="7" y1="18.5" x2="25" y2="18.5" stroke="#CEC0AD"/>
+<rect x="29.5" y="6.5" width="12" height="12" stroke="#CEC0AD"/>
+<rect x="295.5" y="6.5" width="12" height="12" stroke="#CEC0AD"/>
+<path d="M299 10L301.5 12.5M304 15L301.5 12.5M301.5 12.5L304 10L299 15" stroke="#CEC0AD"/>
+<line x1="46" y1="6.5" x2="291" y2="6.5" stroke="#CEC0AD"/>
+<line x1="46" y1="10.5" x2="291" y2="10.5" stroke="#CEC0AD"/>
+<line x1="46" y1="14.5" x2="291" y2="14.5" stroke="#CEC0AD"/>
+<line x1="46" y1="18.5" x2="291" y2="18.5" stroke="#CEC0AD"/>
+</svg>

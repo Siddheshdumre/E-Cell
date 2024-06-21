@@ -1,0 +1,226 @@
+/*<editor-fold desc="Contacts">*/
+.contacts__container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1257px;
+  position: relative;
+  padding: 160px 32px 180px;
+}
+
+.contacts__title {
+  color: var(--beige);
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 52px;
+}
+
+.contacts__title-slash {
+  color: var(--camel);
+}
+
+.contacts__image {
+  position: absolute;
+  right: 32px;
+  top: 250px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+.contacts__description {
+  color: var(--beige);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  max-width: 420px;
+  margin-top: 80px;
+}
+
+.contacts__branches {
+  margin-top: 48px;
+}
+
+.contacts__branch {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  margin-top: 24px;
+}
+
+.contacts__branch-title {
+  color: var(--green);
+  text-transform: uppercase;
+}
+
+.contacts__branch-address {
+  color: var(--beige);
+  opacity: 0.7;
+}
+
+.contacts__branch-coordinates {
+  color: var(--beige);
+  opacity: 0.3;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+@media (max-width: 1210px) {
+  .contacts__container {
+    padding-top: 118px;
+    padding-bottom: 150px;
+  }
+
+  .contacts__description {
+    margin-top: 44px;
+  }
+
+  .contacts__branches {
+    margin-top: 32px;
+  }
+
+  .contacts__title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .contacts__image {
+    max-height: max(32vw, 290px);
+    top: 300px;
+  }
+}
+
+@media (max-width: 766px) {
+  .contacts__container {
+    padding-top: 110px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 80px;
+  }
+
+  .contacts__title,
+  .contacts__description,
+  .contacts__branches {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .contacts__description {
+    max-width: 248px;
+    margin-top: 40px;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .contacts__image {
+    max-height: 220px;
+    top: 660px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*</editor-fold>*/
+
+/*<editor-fold desc="Contacts Button">*/
+.contacts__buttons {
+  display: grid;
+  grid-template-columns: 240px auto;
+  grid-column-gap: 16px;
+  grid-template-areas:
+    "letter call";
+  margin-top: 60px;
+  width: 650px;
+}
+
+.contacts__button {
+  border-radius: 32px;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 42px;
+  letter-spacing: -0.03em;
+  color: var(--bg-color);
+  padding-top: 24px;
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.contacts__button--letter {
+  grid-area: letter;
+  border: 1px solid var(--red);
+  background-color: var(--red);
+  padding-right: 32px;
+}
+
+.contacts__button--call {
+  grid-area: call;
+  border: 1px solid var(--green);
+  background-color: var(--green);
+  padding-right: 40px;
+}
+
+.contacts__button img {
+  filter: brightness(0) saturate(100%) invert(0%) sepia(6%) saturate(1218%) hue-rotate(83deg) brightness(110%) contrast(91%);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+
+.contacts__arrow {
+  position: relative;
+  overflow: hidden;
+  transition: 0.5s;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  border: 2px solid transparent;
+}
+
+.contacts__button:hover img {
+  animation: aniArrow1 1.5s linear infinite;
+}
+
+@media (max-width: 766px) {
+  .contacts__buttons {
+    grid-template-columns: 148px auto;
+    grid-column-gap: 12px;
+    margin-top: 300px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contacts__button {
+    border-radius: 24px;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
+  .contacts__button--letter,
+  .contacts__button--call {
+    padding-right: 20px;
+  }
+
+  .contacts__button img {
+    width: 16px;
+    height: 16px;
+  }
+
+  .contacts__arrow {
+    position: relative;
+    overflow: hidden;
+    transition: 0.6s;
+    width: 20px;
+    height: 20px;
+    display: flex;
+  }
+}
+
+/*</editor-fold>*/

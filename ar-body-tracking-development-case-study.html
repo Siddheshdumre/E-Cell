@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from exyte.com/ar-body-tracking-development-case-study by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 May 2024 06:30:17 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  '../www.googletagmanager.com/gtm5445.html?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MMWH6V3L');</script>
+  <!-- End Google Tag Manager -->
+	
+  <meta charset="UTF-8">
+  <title>Developing an iOS AR application for guided recovery exercises</title>
+  <meta name="description" content="AR Posture app helps clients perform quality recovery exercises without visiting specialized centers.">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/boostrap.css">
+  <link rel="stylesheet" href="css/exyte.css">
+  <link rel="icon" href="img/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="img/favicon-96.png" sizes="96x96" type="image/png">
+  <link rel="icon" href="img/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="canonical" href="ar-body-tracking-development-case-study.html">
+  <link rel="alternate" hreflang="x-default" href="ar-body-tracking-development-case-study.html">
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MMWH6V3L"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="header-wrapper">
+    <header>
+        <div class="header">
+            <nav class="header__nav">
+                <div class="header__logo">
+                    <a class="" href="index.html">
+                        <img src="img/logo-sm.svg" alt="Exyte homepage" width="71" height="20">
+                    </a>
+                </div>
+                <button class="btn-open-menu"><span></span></button>
+                <ul class="header__page-nav list">
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="services.html">Services</a>
+                    </li>
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="portfolio.html">Portfolio</a>
+                    </li>
+                    <!--li class="header__page-nav-item">
+                        <a class="page-nav__link" href="/team">Team</a>
+                    </li-->
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="blog.html">Blog</a>
+                    </li>
+                    <li class="header__page-nav-item">
+                        <a class="page-nav__link" href="contacts.html">Contacts</a>
+                    </li>
+                    <li>
+                        <div class="header__page-nav-hire common-page-link-arrow common-page-link-arrow--black">
+                            Hire us
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header__mobile-nav">
+            <ul class="page-nav list">
+                <li class="page-nav__item">
+                    <a class="page-nav__link" href="services.html">Services</a>
+                </li>
+                <li class="page-nav__item">
+                    <a class="page-nav__link" href="portfolio.html">Portfolio</a>
+                </li>
+                <!--li class="page-nav__item">
+                    <a class="page-nav__link" href="/team">Team</a>
+                </li-->
+                <li class="page-nav__item">
+                    <a class="page-nav__link" href="blog.html">Blog</a>
+                </li>
+                <li class="page-nav__item ">
+                    <a class="page-nav__link" href="contacts.html">Contacts</a>
+                </li>
+                <li class="page-nav__item">
+                    <div class="header__page-nav-hire">
+                        Hire us
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="header-hire">
+            <div class="header-hire__background"></div>
+            <div class="header-hire__container">
+                <div class="header-hire__close"></div>
+                <h3 class="header-hire__heading">Hire us</h3>
+                <h2 class="header-hire__heading-title">Work with Exyte</h2>
+                <div class="contacts__form-body">
+                    <form class="contacts__form form__hire-us">
+                        <div class="contacts__form-group">
+                            <div class="contacts__form-field" data-name="name"  data-required="true">
+                                <div class="contacts__form-field-caption">Your name</div>
+                                <input type="text" class="contacts__form-input" name="name">
+                                <div class="contacts__form-error"></div>
+                            </div>
+                            <div class="contacts__form-field" data-name="email" data-required="true">
+                                <div class="contacts__form-field-caption">E-mail</div>
+                                <input class="contacts__form-input" type="email" data-match="@" name="email">
+                                <div class="contacts__form-error"></div>
+                            </div>
+                        </div>
+                        <div class="contacts__form-group ">
+                            <div class="contacts__form-field" data-name="company">
+                                <div class="contacts__form-field-caption">Website or company name (optional)</div>
+                                <input type="text" class="contacts__form-input" name="company" >
+                                <div class="contacts__form-error"></div>
+                            </div>
+                        </div>
+                        <div class="contacts__form-group">
+                            <div class="contacts__form-field" data-name="help" data-required="true">
+                                <div class="contacts__form-field-caption">How can we help?</div>
+                                <textarea class="contacts__form-textarea" style="height: 32px;"
+                                          name="help"></textarea>
+                                <div class="contacts__form-error"></div>
+                            </div>
+                        </div>
+                        <label class="check option contacts__form-agreement">
+                            <input class="check__input" type="checkbox">
+                            <span class="check__box"></span>
+                            <div class="contacts__form-agreement-text">I  agree to Exyte’s <a href="terms-of-use-and-user-agreement.html" target="__blank">Terms of use and user's agreements</a></div>
+                        </label>
+                        <button class="btn contacts__form-submit" type="submit">Submit</button>
+                    </form>
+                </div>
+                <div class="header-hire__form-response">
+                    Thank you for your interest! A member of our team will be in touch as soon as possible.
+                </div>
+            </div>
+        </div>
+    </header>
+    <script>
+      function setCurrentNavigation() {
+        const navLinks = [...document.getElementsByClassName('header__page-nav-item')].slice(0, -1);
+        const mobileNavLinks = [...document.getElementsByClassName('page-nav__item')].slice(0, -1);
+        navLinks.map(navLink => {
+          const url = navLink.getElementsByClassName('page-nav__link')[0].href.split('index.html')[3];
+          if (url === window.location.pathname.slice(1))
+            navLink.classList.add('current')
+          else navLink.classList.remove('current')
+        })
+        mobileNavLinks.map(navLink => {
+          const url = navLink.getElementsByClassName('page-nav__link')[0].href.split('index.html')[3];
+          if (url === window.location.pathname.slice(1))
+            navLink.classList.add('current')
+          else navLink.classList.remove('current')
+        })
+      }
+      setCurrentNavigation();
+      function handleHireUs() {
+        const hireUsElements = [...document.getElementsByClassName('header__page-nav-hire')];
+        const headerNavElement = [...document.getElementsByClassName('header-wrapper')][0];
+        const closeHireUsElement = [...document.getElementsByClassName('header-hire__close')][0];
+        function handleHireUsClick() {
+          headerNavElement.classList.toggle('header-hire__open');
+        }
+        hireUsElements.forEach((hireUsElement) => hireUsElement.addEventListener('click', handleHireUsClick));
+        closeHireUsElement.addEventListener('click', handleHireUsClick);
+      }
+      handleHireUs();
+      function handleHireUsSubmit() {
+        const formElem = document.querySelector('.form__hire-us');
+        formElem.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const formData = new FormData(formElem);
+          const fields = document.getElementsByClassName('contacts__form-field');
+          let isError = false;
+          for (field of fields) {
+            const {required:isRequired, name} = field.dataset || {};
+            const value = formData.get(name);
+            if (!/\S/.test(value) && !!isRequired) {
+              field.classList.add('contacts__form-field--failed');
+              field.getElementsByClassName('contacts__form-error')[0].innerHTML = 'This field is required';
+              isError = true;
+            }
+          }
+          const agreementInput = document.querySelector(".form__hire-us .contacts__form-agreement input");
+          if(!agreementInput.checked) {
+            isError = true;
+            const agreement = document.querySelector(".form__hire-us .contacts__form-agreement");
+            agreement.classList.add('contacts__form-agreement--failed');
+          }
+          if(isError) return;
+          const data = JSON.stringify({
+            name: formData.get('name'),
+            email: formData.get('email'),
+            company: formData.get('company'),
+            help: formData.get('help')
+          });
+          const xmlhttp = new XMLHttpRequest();
+          xmlhttp.open("POST.html", "/contact");
+          xmlhttp.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+          xmlhttp.send(data);
+          dataLayer.push({'FormSubmit': 'Success', 'event': 'formSubmission'});
+          document.getElementsByClassName('header-hire__container')[0].classList.add('header-hire__form--sent');
+        });
+      }
+      handleHireUsSubmit()
+    </script>
+</div>
+<div class="common-page case-page">
+	<div class="case-page__header">
+		<div class="case-page__header_left">
+			<div class="case-page__title">AR Posture</div>
+			<div class="case-page__description">Building an app for guided recovery exercises</div>
+			<div class="case-page__project">
+				<div class="case-page__project-details">
+					<div class="case-page__project-values">3 months</div>
+					<div class="case-page__project-text">Project length</div>
+				</div>
+			</div>
+			<div class="case-page__project-team">
+				<img class="case-page__project-team-img" class="first-screen__item" src="img/team/DM-min.jpg" alt="" width="30" height="30">
+				<img class="case-page__project-team-img" class="first-screen__item" src="img/team/NA-min.jpg" alt="" width="30" height="30">
+			</div>
+		</div>
+		<div class="case-page__header_right">
+			<img class="case-page__header_image" src="img/cases/ar-posture.svg" alt="AR Posture">
+		</div>
+	</div>
+	<a class="first-screen__scroll-down-wrap" href="#page-content">
+		<div class="case-page__scroll-down">Scroll down</div>
+	</a>
+</div>
+<div class="case-page__divider"></div>
+<div class="common-page case-page" id="page-content">
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Background</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">An employee of a large medical company approached us with an idea of using AR for guided recovery exercises. </p>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Objective</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">People who need to go through recovery often can’t visit a specialist for every session (if at all). The client wanted to utilize AR and body detection capabilities of modern handheld devices to create an app with a set of guided exercises and spoken feedback.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/ar-posture/banner_ar_2.png" alt="AR-development for AR-Posture app">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">App Features</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">We opted for a minimal stack. ARKit takes care of detecting the body posture, SceneKit is used to draw a simple skeleton over the user’s body, and default iOS text-to-speech (TTS) is used for voice guidance. Distances and angles between bones and joints of the detected skeleton would help estimate how close the user is to the expected pose.</p>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Process</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="description">A set of exercises</p>
+				<p class="page__text">We agreed upon a set number of exercises (squats and side stretches), and manually selected a  number of postures at the beginning, middle and end of the exercise. Each of these postures had a set of numbers representing body angles and distances and would be used to gauge if the user is doing the exercise correctly.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">ARKit body detection</p>
+				<p class="page__text">We embedded the ARKit body detection and tied the data from the detected skeleton to our benchmark values for each pose. After that we used SceneKit to render the relevant parts of the skeleton on the camera video stream.</p>
+			</div>
+			<div class="case-page__text-block-paragraph">
+				<p class="description">TTS</p>
+				<p class="page__text">We added guiding logic and quality of life improvements - TTS to tell the user the next step (i.e. “please sit down”, “sit down deeper”, “stand up”), a rep counter, ability to record the screen for future analysis, a tracker of previous workouts and their success rate.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__image-block ">
+		<img class="case-page__image-block-img" src="img/cases/ar-posture/banner_ar_1.png" alt="AR-development for AR-Posture app">
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Technology</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="description">Development</p>
+				<p class="page__text"></p>
+				<ul class="page__list--default">
+					<li class="page__item--default page__item-text">ARKit</li>
+					<li class="page__item--default page__item-text">SceneKit</li>
+					<li class="page__item--default page__item-text">ReplayKit</li>
+					<li class="page__item--default page__item-text">AVFoundation</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="page__wrap-video">
+		<div class="wrap-video">
+			<iframe src="https://www.youtube.com/embed/20rr3z9oxlM" style="border: 0;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
+	</div>
+
+
+		<div class="case-page__text-block">
+			<div class="case-page__block-title">Result</div>
+			<div class="case-page__text-block-paragraphs">
+			<div class="case-page__text-block-paragraph">
+				<p class="page__text">Minimum viable product with a set of two guided exercises and spoken feedback.</p>
+			</div>
+			</div>
+		</div>
+
+
+	<div class="case-page__see-cases-block">
+		<h2 class="case-page__see-cases-title">See cases</h2>
+		<div class="case-page__other-cases-block portfolio-page__other-cases">
+			<div class="portfolio-page__case " data-type="ar">
+				<a href="ar-development-case-study.html">
+					<div class="portfolio-page__case-wrap-img">
+						<img class="portfolio-page__case-img" src="img/cases/airmeasure.svg" alt="">
+					</div>
+					<div class="portfolio-page__case-wrap-text">
+						<p class="portfolio-page__case-title">
+							AirMeasure
+						</p>
+						<p class="portfolio-page__case-text">Developing different measurement modes in an AR app for iOS</p>
+						<div class="portfolio-page__case-see link link--line">See case</div>
+					</div>
+				</a>
+			</div>
+			<div class="portfolio-page__case " data-type="vr">
+				<a href="thedeep-vr-development-case-study.html">
+					<div class="portfolio-page__case-wrap-img">
+						<img class="portfolio-page__case-img" src="img/cases/thedeep.svg" alt="">
+					</div>
+					<div class="portfolio-page__case-wrap-text">
+						<p class="portfolio-page__case-title">
+							The Deep
+						</p>
+						<p class="portfolio-page__case-text">Developing a multiplayer FPS game for a free-roam immersive VR</p>
+						<div class="portfolio-page__case-see link link--line">See case</div>
+					</div>
+				</a>
+			</div>
+			<div class="portfolio-page__case " data-type="mobile">
+				<a href="work-of-art-anndroid-development-case-study.html">
+					<div class="portfolio-page__case-wrap-img">
+						<img class="portfolio-page__case-img" src="img/cases/workofart.svg" alt="">
+					</div>
+					<div class="portfolio-page__case-wrap-text">
+						<p class="portfolio-page__case-title">
+							Work of Art
+						</p>
+						<p class="portfolio-page__case-text">Developing a native Android application for a mental health program</p>
+						<div class="portfolio-page__case-see link link--line">See case</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<footer class="footer-module">
+    <div class="footer-module__wrap">
+        <span class="footer-module__copyright">
+            <span>© Exyte 2021</span>
+        </span>
+        <div class="footer-module__contacts">
+            <div class="footer-module__contact">
+                <img class="footer-module__icon"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDE4IDE0Ij4NCiAgICA8cGF0aCBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0xNS45OSAxLjI2MkExLjk5IDEuOTkgMCAwIDAgMTUgMUgzYy0uMzYgMC0uNjk4LjA5NS0uOTkuMjYyTDkgNy44MTVsNi45OS02LjU1M3ptLjcxOC42OTdMOSA5LjE4NSAxLjI5MiAxLjk2QTEuOTkgMS45OSAwIDAgMCAxIDN2OGEyIDIgMCAwIDAgMiAyaDEyYTIgMiAwIDAgMCAyLTJWM2ExLjk5IDEuOTkgMCAwIDAtLjI5Mi0xLjA0MXpNMyAwaDEyYTMgMyAwIDAgMSAzIDN2OGEzIDMgMCAwIDEtMyAzSDNhMyAzIDAgMCAxLTMtM1YzYTMgMyAwIDAgMSAzLTN6IiBvcGFjaXR5PSIuNSIvPg0KPC9zdmc+DQo="
+                     alt="">
+                <a class="footer-module__link" href="mailto:sales@exyte.com">sales@exyte.com</a>
+            </div>
+            <div class="footer-module__contact">
+                <img class="footer-module__icon"
+                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDEyIDE4Ij4NCiAgICA8cGF0aCBmaWxsPSIjRkZGIiBmaWxsLXJ1bGU9Im5vbnplcm8iIGQ9Ik0xMSA2QTUgNSAwIDEgMCAxIDZjMCAxLjc4OCAxLjY2NyA1LjI1MyA1IDEwLjIyM0M5LjMzMyAxMS4yNTMgMTEgNy43ODggMTEgNnpNNiAxOEMyIDEyLjIxIDAgOC4yMSAwIDZhNiA2IDAgMSAxIDEyIDBjMCAyLjIxLTIgNi4yMS02IDEyek02IDhhMiAyIDAgMSAwIDAtNCAyIDIgMCAwIDAgMCA0em0wIDFhMyAzIDAgMSAxIDAtNiAzIDMgMCAwIDEgMCA2eiIgb3BhY2l0eT0iLjUiLz4NCjwvc3ZnPg0K"
+                     alt="">
+                <a class="footer-module__link" target="_ blank" href="https://goo.gl/maps/Bx4XckDoSB2Ah938A" rel="nofollow">408 Broadway, NYC</a>
+            </div>
+
+        </div>
+        <ul class="footer-module__social-nav">
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://www.instagram.com/exyte.agency/" rel="nofollow">
+                    <img src="img/share/instagram.svg"
+                         alt="Open Exyte's Instagram in new tab">
+                </a>
+            </li>
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://twitter.com/exytehq" rel="nofollow">
+                    <img src="img/share/twitter.svg"
+                         alt="Open Exyte's Twitter in new tab">
+                </a>
+            </li>
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://github.com/exyte" rel="nofollow">
+                    <img src="img/share/github.svg"
+                         alt="Open Exyte's Github in new tab">
+                </a>
+            </li>
+            <li class="footer-module__social-nav__item">
+                <a target="_ blank" href="https://clutch.co/profile/exyte" rel="nofollow">
+                    <img src="img/icons/clutch.svg"
+                         alt="Open Exyte's Clutch in new tab">
+                </a>
+            </li>
+        </ul>
+    </div>
+</footer>
+	<script src="js/main.js"></script>
+</body>
+
+<!-- Mirrored from exyte.com/ar-body-tracking-development-case-study by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 13 May 2024 06:30:19 GMT -->
+</html>
