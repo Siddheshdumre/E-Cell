@@ -1484,38 +1484,43 @@
   color: var(--beige);
   margin-bottom: 60px;
 }
-
 .main-team__item {
   margin-bottom: 100px;
   display: grid;
-  grid-template-columns: 305px 535px;
-  grid-column-gap: 270px;
+  grid-template-columns: 1fr; /* Single column layout */
+  grid-template-rows: auto auto; /* Automatically adjust row height */
   grid-row-gap: 24px;
-  grid-template-areas:
-    "name description"
-    "name stats"
-    "name faces";
+}
+
+.main-team__position {
+  font-weight: 400;
+  font-size: 22px; /* Adjust font size as needed */
+  line-height: 0.5; /* Adjust line height as needed */
+  text-align: center;
+  color: #ff5100; /* Adjust color as needed */
 }
 
 .main-team__name {
-  grid-area: name;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 40px;
   line-height: 34px;
   letter-spacing: -0.03em;
+  text-align: center;
   color: var(--beige);
 }
 
 .main-team__description {
-  grid-area: description;
   font-family: 'IBM Plex Mono', sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 24px;
   letter-spacing: -0.03em;
+  text-align: center;
   color: var(--beige);
 }
+
+
 
 .main-team__stats {
   grid-area: stats;
