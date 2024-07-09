@@ -1494,10 +1494,10 @@
 
 .main-team__position {
   font-weight: 400;
-  font-size: 22px; /* Adjust font size as needed */
-  line-height: 0.5; /* Adjust line height as needed */
+  font-size: 22px; 
+  line-height: 0.5px; 
   text-align: center;
-  color: #ff5100; /* Adjust color as needed */
+  color: #ff5100; 
 }
 
 .main-team__name {
